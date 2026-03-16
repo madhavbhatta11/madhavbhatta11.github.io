@@ -1,67 +1,7 @@
-body{
-    font-family: Arial;
-    margin:0;
-    background:#f4f6f8;
-}
-
-/* Navbar */
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-    background:#222;
-    color:white;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-}
-
-/* Hero */
-
-.hero{
-    text-align:center;
-    padding:80px 20px;
-    background:#4CAF50;
-    color:white;
-}
-
-/* Sections */
-
-section{
-    padding:50px;
-    text-align:center;
-}
-
-/* Project Cards */
-
-.project-container{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    flex-wrap:wrap;
-}
-
-.project-card{
-    background:white;
-    padding:25px;
-    width:250px;
-    border-radius:8px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
-
-.project-card a{
+.project-btn{
     display:inline-block;
     margin-top:10px;
+    margin-right:10px;
     padding:8px 15px;
     background:#4CAF50;
     color:white;
@@ -69,11 +9,16 @@ section{
     border-radius:4px;
 }
 
-/* Footer */
+.project-btn:hover{
+    background:#388e3c;
+}
 
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:20px;
+/* AI button style */
+
+.ai-btn{
+    background:#2196F3;
+}
+
+.ai-btn:hover{
+    background:#1976d2;
 }
