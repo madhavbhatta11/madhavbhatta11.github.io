@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Grade Calculator</title>
+<title>Student Grade Calculator</title>
 
-    <!-- PyScript -->
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+<style>
+body{
+    font-family: Arial;
+    padding:40px;
+}
 
-    <style>
-        body{
-            font-family: Arial;
-            padding: 40px;
-        }
+input{
+    margin:5px;
+    padding:5px;
+    width:80px;
+}
 
-        input{
-            margin:5px;
-            padding:5px;
-            width:80px;
-        }
+button{
+    padding:8px 15px;
+    margin-top:10px;
+}
 
-        button{
-            padding:8px 15px;
-            margin-top:10px;
-        }
+pre{
+    background:#f2f2f2;
+    padding:15px;
+    margin-top:20px;
+}
 
-        pre{
-            background:#f2f2f2;
-            padding:15px;
-            margin-top:20px;
-        }
-    </style>
+a{
+    display:inline-block;
+    margin-bottom:20px;
+}
+</style>
+
 </head>
 
 <body>
+
+<a href="index.html">⬅ Back to Portfolio</a>
 
 <h1>Student Grade Calculator</h1>
 
@@ -40,64 +44,76 @@ Math: <input id="math" type="number"><br>
 English: <input id="english" type="number"><br>
 Physics: <input id="physics" type="number"><br>
 
-<button id="calculate">Calculate Grade</button>
+<button onclick="calculate()">Calculate Grade</button>
 
 <pre id="output"></pre>
 
-<py-script>
+<script>
 
-from js import document
+function calculate(){
 
-def calculate(event):
+let math = Number(document.getElementById("math").value);
+let english = Number(document.getElementById("english").value);
+let physics = Number(document.getElementById("physics").value);
 
-    math = float(document.getElementById("math").value)
-    english = float(document.getElementById("english").value)
-    physics = float(document.getElementById("physics").value)
+let total = math + english + physics;
 
-    total = math + english + physics
+let failed = [];
 
-    failed_subjects = []
+if(math < 32){
+    failed.push("Math");
+}
 
-    if math < 32:
-        failed_subjects.append("Math")
+if(english < 32){
+    failed.push("English");
+}
 
-    if english < 32:
-        failed_subjects.append("English")
+if(physics < 32){
+    failed.push("Physics");
+}
 
-    if physics < 32:
-        failed_subjects.append("Physics")
+let output = "";
 
-    output = ""
+if(failed.length > 0){
 
-    if failed_subjects:
-        output = "Result: Failed\n"
-        output += "Failed in: " + ", ".join(failed_subjects)
+    output = "Result: Failed\n";
+    output += "Failed in: " + failed.join(", ");
 
-    else:
+}
+else{
 
-        percentage = total / 3
+    let percentage = total / 3;
+    let grade;
 
-        if percentage >= 90:
-            grade = "A+"
-        elif percentage >= 80:
-            grade = "A"
-        elif percentage >= 70:
-            grade = "B"
-        elif percentage >= 60:
-            grade = "C"
-        elif percentage >= 50:
-            grade = "D"
-        else:
-            grade = "E"
+    if(percentage >= 90){
+        grade = "A+";
+    }
+    else if(percentage >= 80){
+        grade = "A";
+    }
+    else if(percentage >= 70){
+        grade = "B";
+    }
+    else if(percentage >= 60){
+        grade = "C";
+    }
+    else if(percentage >= 50){
+        grade = "D";
+    }
+    else{
+        grade = "E";
+    }
 
-        output = f"Result: Passed\nPercentage: {percentage:.2f}\nGrade: {grade}"
+    output = "Result: Passed\n";
+    output += "Percentage: " + percentage.toFixed(2) + "\n";
+    output += "Grade: " + grade;
+}
 
-    document.getElementById("output").innerText = output
+document.getElementById("output").innerText = output;
 
+}
 
-document.getElementById("calculate").addEventListener("click", calculate)
-
-</py-script>
+</script>
 
 </body>
 </html>
