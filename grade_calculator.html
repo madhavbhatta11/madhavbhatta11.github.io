@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; }
+        input { margin: 0.5rem 0; padding: 0.3rem; width: 60px; }
+        button { padding: 0.5rem 1rem; margin-top: 1rem; }
+        pre { background: #f0f0f0; padding: 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Student Grade Calculator</h1>
+
+    Math: <input id="math" type="number"><br>
+    English: <input id="english" type="number"><br>
+    Physics: <input id="physics" type="number"><br>
+    <button id="calculate">Calculate Grade</button>
+
+    <pre id="output"></pre>
+
+    <py-script>
+from js import document
+
+def calculate(evt):
+    math = float(document.getElementById("math").value)
+    english = float(document.getElementById("english").value)
+    physics = float(document.getElementById("physics").value)
+    
+    total = math + english + physics
+    failed_subjects = []
+    for sub, mark in zip(["Math","English","Physics"], [math, english, physics]):
+        if mark < 32:
+            failed_subjects.append(sub)
+    
+    output = ""
+    if failed_subjects:
+        output += f"Result: Failed\nFailed in: {', '.join(failed_subjects)}"
+    else:
+        percentage = total/3
+        if percentage >= 90: grade="A+"
+        elif percentage >= 80: grade="A"
+        elif percentage >= 70: grade="B"
+        elif percentage >= 60: grade="C"
+        elif percentage >= 50: grade="D"
+        else: grade="E"
+        output += f"Result: Passed\nPercentage: {percentage}\nGrade: {grade}"
+    
+    document.getElementById("output").innerText = output
+
+document.getElementById("calculate").addEventListener("click", calculate)
+    </py-script>
+
+</body>
+</html>
