@@ -4,49 +4,93 @@
 <title>Student Grade Calculator</title>
 
 <style>
+
 body{
     font-family: Arial;
-    padding:40px;
+    background: linear-gradient(135deg,#4CAF50,#2e7d32);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:35px;
+    border-radius:10px;
+    width:320px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+
+h1{
+    margin-bottom:20px;
 }
 
 input{
-    margin:5px;
-    padding:5px;
-    width:80px;
+    width:90%;
+    padding:8px;
+    margin:8px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
 }
 
 button{
-    padding:8px 15px;
+    background:#4CAF50;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:5px;
     margin-top:10px;
+    cursor:pointer;
+    font-size:15px;
 }
 
-pre{
+button:hover{
+    background:#388e3c;
+}
+
+.result{
+    margin-top:15px;
+    padding:10px;
     background:#f2f2f2;
-    padding:15px;
-    margin-top:20px;
+    border-radius:5px;
+    white-space:pre-line;
 }
 
-a{
-    display:inline-block;
-    margin-bottom:20px;
+.back{
+    position:absolute;
+    top:20px;
+    left:20px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
 }
+
 </style>
 
 </head>
 
 <body>
 
-<a href="index.html">⬅ Back to Portfolio</a>
+<a class="back" href="index.html">⬅ Back to Portfolio</a>
 
-<h1>Student Grade Calculator</h1>
+<div class="container">
 
-Math: <input id="math" type="number"><br>
-English: <input id="english" type="number"><br>
-Physics: <input id="physics" type="number"><br>
+<h1>Grade Calculator</h1>
+
+<input id="math" type="number" placeholder="Math Marks">
+
+<input id="english" type="number" placeholder="English Marks">
+
+<input id="physics" type="number" placeholder="Physics Marks">
 
 <button onclick="calculate()">Calculate Grade</button>
 
-<pre id="output"></pre>
+<div id="output" class="result"></div>
+
+</div>
 
 <script>
 
