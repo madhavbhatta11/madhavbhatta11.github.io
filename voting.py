@@ -32,3 +32,16 @@ for m in range(1, n + 1):
     total +=m
 
 print("Final Sum:", total)
+
+
+# to find the diffrenc in for and while loop
+for i in range (5):
+    print("hello five times")
+
+j=0
+while j<=3:
+    print("not three times, four times")
+    j+=1
+
+
+
