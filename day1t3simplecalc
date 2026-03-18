@@ -20,3 +20,9 @@ elif c=="%":
 else:
     print("Invalid operation. Please enter one of +, -, *, /, or %.")
 
+try:
+    a = float(input("enter first number: "))
+    b = float(input("enter second number: "))
+except:
+    print("Please enter valid numbers")
+
