@@ -1,0 +1,22 @@
+b=float(input("enter the second number: "))
+a=float(input("enter the first number: "))
+c=input("enter the operation: + , - , * , /, % :")
+if c=="+":
+    print("the sum is", a+b)
+elif c=="-":
+    print("the diffrence is", a-b)
+elif c=="*":
+    print("the product is", a*b)
+elif c=="/":
+    if b!=0:
+        print("the quotient is", a/b)
+    else:
+        print("Error: Division by zero is not allowed.")
+elif c=="%":
+    if b!=0:
+        print("the remainder is", a%b)
+    else:
+        print("Error: Division by zero is not allowed.")
+else:
+    print("Invalid operation. Please enter one of +, -, *, /, or %.")
+
