@@ -1,6 +1,9 @@
 try:
-a=float(input("enter the first number: "))
-b=float(input("enter the second number: "))
+    a = float(input("enter the first number: "))
+    b = float(input("enter the second number: "))
+except ValueError:
+    print("Invalid input! Please enter numbers only.")
+    exit()
 c=input("enter the operation: + , - , * , /, % :")
 if c=="+":
     print("the sum is", a+b)
@@ -20,6 +23,4 @@ elif c=="%":
         print("Error: Division by zero is not allowed.")
 else:
     print("Invalid operation. Please enter one of +, -, *, /, or %.")
-except:
-    print("Please enter valid numbers")
 
