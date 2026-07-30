@@ -93,3 +93,82 @@
 .contact-box a:hover{
     text-decoration:underline;
 }
+
+/* ================= CV PAGE ================= */
+
+.cv-page{
+
+    min-height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px 20px;
+
+    background:#f4f6f8;
+}
+
+.cv-card{
+
+    width:700px;
+
+    max-width:95%;
+
+    background:white;
+
+    padding:50px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.cv-card h1{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+    color:#222;
+}
+
+.cv-text{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    color:#666;
+
+    margin-bottom:35px;
+}
+
+.cv-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+.cv-buttons a{
+
+    font-size:17px;
+
+    padding:12px 24px;
+
+    transition:.3s;
+}
+
+.cv-buttons a:hover{
+
+    transform:translateY(-3px);
+}
