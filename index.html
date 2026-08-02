@@ -1,133 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- Navigation -->
-<nav>
-    <h2 class="logo">MyPortfolio</h2>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://github.com/madhavbhatta11">GitHub</a></li>
-        <li><a href="study materials.html">Study Materials</a></li>
-        <li><a href="cv.html">CV</a></li>
-        <li class="dropdown">
-    <a href="#">CV with Dropdown feature</a>
-    <ul class="dropdown-content">
-        <li>
-            <a href="assets/Madhav_Bhatta_CV.pdf" target="_blank">
-                View CV
-            </a>
-        </li>
-        <li>
-            <a href="assets/Madhav_Bhatta_CV.pdf" download>
-                Download CV
-            </a>
-        </li>
-    </ul>
-        </li>
-    </ul>
+<!-- Floating Navigation Bar -->
+<nav class="floating-nav">
+    <div class="nav-container">
+        <h2 class="logo">MyPortfolio<span>.</span></h2>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/madhavbhatta11" target="_blank">GitHub</a></li>
+            <li><a href="study materials.html">Study Materials</a></li>
+            <li class="dropdown">
+                <a href="#">CV Links</a>
+                <ul class="dropdown-content">
+                    <li><a href="assets/Madhav_Bhatta_CV.pdf" target="_blank">View CV</a></li>
+                    <li><a href="assets/Madhav_Bhatta_CV.pdf" download>Download CV</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a href="contact.html" class="nav-cta">Contact Me</a>
+    </div>
 </nav>
 
-<!-- Hero Section -->
-<header class="hero">
-    <h1>Hello, I'm Madhav Bhatta</h1>
-    <p>A beginner Python developer building projects and learning web development.</p>
-
-    <!-- CV Buttons
-    <div class="cv-buttons">
-        <a class="project-btn" href="assets/Madhav_Bhatta_CV.pdf" target="_blank">
-            View CV
-        </a>
-
-        <a class="project-btn ai-btn" href="assets/Madhav_Bhatta_CV.pdf" download>
-            Download CV
-        </a>
-    </div> -->
-
+<!-- Figma Clean Hero Section -->
+<header class="hero-clean">
+    <div class="hero-container">
+        <div class="hero-text-side">
+            <div class="designer-badge">
+                <span class="corner-tick tl"></span><span class="corner-tick tr"></span>
+                Hello There!
+                <span class="corner-tick bl"></span><span class="corner-tick br"></span>
+            </div>
+            <h1>I'm <span>Madhav Bhatta</span>,<br>Python Developer & Learner.</h1>
+            <p>A beginner Python developer building functional backend projects, exploring automation logic, and learning modern web development architectures.</p>
+            
+            <div class="hero-action-row">
+                <a class="split-pill-btn" href="#projects">
+                    <span class="btn-lbl">View My Portfolio</span>
+                    <span class="btn-arr">▶</span>
+                </a>
+                <a class="outline-pill-btn" href="assets/Madhav_Bhatta_CV.pdf" target="_blank">View CV</a>
+            </div>
+        </div>
+        
+        <div class="hero-graphic-side">
+            <div class="circle-backdrop">
+                <!-- Profile Image -->
+                <img src="assets/images/profile.jpeg" alt="Madhav Bhatta" class="profile-img">
+                
+                <!-- Floating Labels -->
+                <div class="floating-pill pill-green">
+                    <span class="cursor-pointer">▲</span> Python Dev
+                </div>
+                <div class="floating-pill pill-orange">
+                    <span class="cursor-pointer">▲</span> Web Learner
+                </div>
+                
+                <!-- Rotating Interactive Badge Graphic -->
+                <div class="circular-seal">
+                    <svg viewBox="0 0 100 100" class="seal-text-svg">
+                        <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+                        <text><textPath href="#circlePath" class="seal-text">HIRE ME • HIRE ME • HIRE ME • </textPath></text>
+                    </svg>
+                    <div class="seal-center">↗</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 
+<!-- Slanted Ticker Ribbon Bar -->
+<div class="slanted-ribbon">
+    <div class="ribbon-track">
+        <span>Python Logic ✹</span>
+        <span>Website Design ✹</span>
+        <span>Application Logic ✹</span>
+        <span>Automation ✹</span>
+        <span>Data Structures ✹</span>
+    </div>
+</div>
+
 <!-- Projects Section -->
-<section id="projects">
-
-<h2>My Projects</h2>
-
-<div class="project-container">
-
-<div class="project-card">
-
-<h3>Student Grade Calculator</h3>
-
-<p>
-Interactive calculator that calculates student result, percentage and grade.
-</p>
-
-<!-- Buttons -->
-<a class="project-btn" href="grade_calculator.html">Try Project</a>
-
-<h3>Website</h3>
-<p>
-website built with AI
-</p>
-
-<a class="project-btn ai-btn" href="https://madhavbhatta11-69.lovable.app/">Website by AI</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- About -->
-<section id="about">
-
-<h2>About Me</h2>
-
-<p>
-I am learning Python programming and web development.
-This portfolio shows my projects and learning journey.
-</p>
-
-</section>
-
-<!-- CV -->
-<!-- <section id="cv">
-
-    <h2>My CV</h2>
-
-    <p>
-        You can view or download my latest CV below.
-    </p> -->
-
-    <!-- <div class="cv-buttons">
-        <a class="project-btn" href="assets/Madhav_Bhatta_CV.pdf" target="_blank">
-            View CV
-        </a>
-
-        <a class="project-btn ai-btn" href="assets/Madhav_Bhatta_CV.pdf" download>
-            Download CV
-        </a>
+<section id="projects" class="projects-section">
+    <div class="section-header">
+        <h2>My Projects</h2>
     </div>
 
-</section> -->
+    <div class="project-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+            <div class="card-icon">🧮</div>
+            <h3>Student Grade Calculator</h3>
+            <p>Interactive calculator that calculates student result, percentage and grade dynamically.</p>
+            <a class="card-link" href="grade_calculator.html">Try Project →</a>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+            <div class="card-icon">🤖</div>
+            <h3>Website</h3>
+            <p>Modern functional website instances designed and built with AI generation frameworks.</p>
+            <a class="card-link ai-link" href="https://madhavbhatta11-69.lovable.app/" target="_blank">Website by AI →</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="about-container">
+        <div class="about-image">
+            <div class="circular-bg">
+                <img src="assets/images/profile.jpeg" alt="About Me">
+            </div>
+        </div>
+        <div class="about-text">
+            <h2>Who is <span>Madhav Bhatta</span>?</h2>
+            <p>I am actively learning Python programming and web development workflows. This portfolio serves as an interactive timeline showcasing my projects, logic solutions, and my ongoing digital learning journey.</p>
+            
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <h3>5+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="counter-item">
+                    <h3>100%</h3>
+                    <p>Learning Drive</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer>
-
-<p>© 2026 Madhav Bhatta</p>
-
-<p>
-GitHub:
-<a href="https://github.com/madhavbhatta11">madhavbhatta11</a>
-</p>
-
+    <div class="footer-container">
+        <p>© 2026 Madhav Bhatta. All rights reserved.</p>
+        <p>GitHub: <a href="https://github.com/madhavbhatta11" target="_blank">madhavbhatta11</a></p>
+    </div>
 </footer>
 
 </body>
