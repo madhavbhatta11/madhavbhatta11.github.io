@@ -253,6 +253,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    transform: translateX(30px);
 }
 
 .circle-backdrop {
