@@ -3,12 +3,12 @@
 
     /* Theme Colors */
     --bg-color: #f9fbf9;
-    --text-color: #1a1a1add;
+    --text-color: #1a1a1a;
     --card-color: #ffffff;
 
     /* Brand Colors */
-    --brand-green: #217131;
-    --brand-orange: #d1c0a2;
+    --brand-green: #32753f;
+    --brand-orange: #ffa600d4;
 
     /* Other */
     --muted-grey: #666666;
@@ -23,7 +23,7 @@ body.dark-mode{
 
     --card-color:#1f1f1f;
 
-    --muted-grey:#cccccc;
+    --muted-grey:#c0b306;
 
     --brand-green:#217131;
 }
@@ -39,6 +39,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+}
+html{
+    scroll-behavior:smooth;
 }
 
 /* ================= NAV SYSTEM ================= */
@@ -76,11 +79,39 @@ body {
 }
 
 .floating-nav ul li a {
+    position: relative;
     color: #cbd5ce;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color .3s ease;
+}
+
+.floating-nav ul li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--brand-orange);
+
+    transition:.3s;
+
+}
+
+.floating-nav ul li a:hover::after,
+.floating-nav ul li a.active::after{
+
+    width:100%;
+
 }
 
 .floating-nav ul li a:hover, .floating-nav ul li a.active {
@@ -88,14 +119,19 @@ body {
 }
 
 .floating-nav .nav-cta {
-    background-color: var(--pure-white);
-    color: var(--brand-green);
+    background: #ffffff;
+    color: #1b3b22;
+
     padding: 10px 24px;
     border-radius: 30px;
+
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
-    transition: 0.2s;
+
+    display: inline-block;
+
+    transition: all .3s ease;
 }
 
 .floating-nav .nav-cta:hover {
@@ -148,18 +184,31 @@ body {
 }
 
 .theme-btn{
-    background:none;
+
+    width:42px;
+    height:42px;
+
     border:none;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
-    padding:8px 10px;
+    outline:none;
+
     border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     transition:.3s;
+
 }
 
 .theme-btn:hover{
+
     background:rgba(255,255,255,.15);
+
 }
 
 /* Keep menu open while hovering over either the button OR the menu */
@@ -778,4 +827,19 @@ body.dark-mode footer{
     padding:8px;
 
     border-radius:50%;
+}
+
+.theme-icon{
+
+    width:22px;
+    height:22px;
+
+    fill:white;
+
+}
+
+.hidden{
+
+    display:none;
+
 }

@@ -15,7 +15,7 @@
     <div class="nav-container">
         <h2 class="logo"><span>. </span>Madhav Bhatta</h2>
         <ul>
-            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -38,11 +38,31 @@
                     </li>
                  </ul>
                 </li>
-                <li>
-                    <button id="theme-toggle" class="theme-btn">
-                        🌙
-                    </button>
-                </li>
+               <li>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+
+        <!-- Moon -->
+        <svg id="moon-icon" class="theme-icon" viewBox="0 0 24 24">
+            <path d="M20.742 13.045A9 9 0 1110.955 3.258a7 7 0 009.787 9.787z"/>
+        </svg>
+
+        <!-- Sun -->
+        <svg id="sun-icon" class="theme-icon hidden" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <g stroke-width="2" stroke-linecap="round">
+                <line x1="12" y1="1" x2="12" y2="4"/>
+                <line x1="12" y1="20" x2="12" y2="23"/>
+                <line x1="1" y1="12" x2="4" y2="12"/>
+                <line x1="20" y1="12" x2="23" y2="12"/>
+                <line x1="4.2" y1="4.2" x2="6.4" y2="6.4"/>
+                <line x1="17.6" y1="17.6" x2="19.8" y2="19.8"/>
+                <line x1="17.6" y1="6.4" x2="19.8" y2="4.2"/>
+                <line x1="4.2" y1="19.8" x2="6.4" y2="17.6"/>
+            </g>
+        </svg>
+
+    </button>
+</li>
 
         </ul>
         <a href="contact.html" class="nav-cta">Contact Me</a>
@@ -169,5 +189,6 @@
 
 <script src="navbar.js"></script>
 <script src="theme.js"></script>
+<script src="scrollspy.js"></script>
 </body>
 </html>
