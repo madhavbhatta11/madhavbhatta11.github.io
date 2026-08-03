@@ -1,12 +1,31 @@
 /* ================= GLOBAL RESETS & VARIABLES ================= */
 :root {
-    --brand-green: #1b3b22;
-    --brand-orange: #e5a93b;
-    --dark-charcoal: #1a1a1a;
+
+    /* Theme Colors */
+    --bg-color: #f9fbf9;
+    --text-color: #1a1a1add;
+    --card-color: #ffffff;
+
+    /* Brand Colors */
+    --brand-green: #217131;
+    --brand-orange: #d1c0a2;
+
+    /* Other */
     --muted-grey: #666666;
-    --bg-light: #f9fbf9;
-    --pure-white: #ffffff;
     --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+body.dark-mode{
+
+    --bg-color:#2a2626;
+
+    --text-color:#f2f2f2;
+
+    --card-color:#1f1f1f;
+
+    --muted-grey:#cccccc;
+
+    --brand-green:#217131;
 }
 
 * {
@@ -17,8 +36,8 @@
 
 body {
     font-family: var(--font-main), sans-serif;
-    background-color: var(--bg-light);
-    color: var(--dark-charcoal);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -128,6 +147,21 @@ body {
     color: #fff !important;
 }
 
+.theme-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    padding:8px 10px;
+    border-radius:50%;
+    transition:.3s;
+}
+
+.theme-btn:hover{
+    background:rgba(255,255,255,.15);
+}
+
 /* Keep menu open while hovering over either the button OR the menu */
 .dropdown:hover .dropdown-content,
 .dropdown-content:hover {
@@ -136,7 +170,7 @@ body {
 
 /* ================= FIGMA HERO LAYOUT ================= */
 .hero-clean {
-    background-color: var(--pure-white) !important;
+    background-color: var(--card-color) !important;
     padding: 60px 20px 100px 20px;
     overflow: hidden;
 }
@@ -271,6 +305,7 @@ body {
     object-fit: contain;
     position: absolute;
     bottom: 0;
+    right: -100px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -392,7 +427,7 @@ body {
 }
 
 .project-card {
-    background: var(--pure-white);
+    background: var(--card-color);
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
@@ -699,4 +734,48 @@ footer a { color: var(--brand-orange); text-decoration: none; }
     position: sticky;
     top: 20px;
     z-index: 99999;
+}
+
+/* Dark Mode */
+
+body.dark-mode{
+    background:#121212;
+    color:#f2f2f2;
+}
+
+body.dark-mode .hero-clean{
+    background:#121212 !important;
+}
+
+body.dark-mode .project-card{
+    background:#1f1f1f;
+    color:white;
+}
+
+body.dark-mode .about-section{
+    background:#0d2614;
+}
+
+body.dark-mode .floating-nav{
+    background:#111;
+}
+
+body.dark-mode footer{
+    background:#000;
+}
+.theme-btn{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    padding:8px;
+
+    border-radius:50%;
 }
