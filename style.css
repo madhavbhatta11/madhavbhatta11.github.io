@@ -49,7 +49,7 @@ body {
 }
 .floating-nav .logo span { color: var(--brand-orange); }
 
-.floating-nav ul {
+.floating-nav .nav-container > ul {
     display: flex;
     list-style: none;
     gap: 30px;
@@ -87,46 +87,50 @@ body {
 /* Dropdown Menu styling integrated into navigation */
 .dropdown {
     position: relative;
-    display: inline-block;
+}
+
+.dropdown > a {
+    display: block;
+    padding: 10px 0;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 100%;          /* directly below the menu */
     left: 0;
-    background-color: var(--pure-white);
-    min-width: 160px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 0;      /* IMPORTANT: remove the gap */
+    padding: 8px 0;
+    min-width: 180px;
+
+    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
-    margin-top: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+
+    list-style: none;
+    z-index: 99999;
 }
 
 .dropdown-content li {
-    border-bottom: 1px solid #ddd;
-}
-.dropdown-content li:last-child {
-    border-bottom: none;
+    width: 100%;
 }
 
 .dropdown-content li a {
     display: block;
-    padding: 12px 16px;
-    color: var(--dark-charcoal) !important;
+    padding: 12px 18px;
+    color: #222 !important;
     text-decoration: none;
-    font-size: 14px;
+    white-space: nowrap;
 }
 
 .dropdown-content li a:hover {
-    background-color: #f2f2f2;
-    color: var(--brand-green) !important;
+    background: var(--brand-green);
+    color: #fff !important;
 }
 
-.dropdown:hover .dropdown-content {
+/* Keep menu open while hovering over either the button OR the menu */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
     display: block;
 }
 
@@ -682,4 +686,15 @@ footer a { color: var(--brand-orange); text-decoration: none; }
     left: auto;
     transform: none;
     border: 4px solid var(--brand-green);
+}
+
+.hero-clean {
+    position: relative;
+    z-index: 1;
+}
+
+.floating-nav {
+    position: sticky;
+    top: 20px;
+    z-index: 99999;
 }
