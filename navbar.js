@@ -1,12 +1,14 @@
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    });
-}
+hamburger.addEventListener("click", () => {
+
+    console.log("Clicked!");
+
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+
+});
 
 const body = document.body;
 
@@ -57,13 +59,3 @@ toggle.addEventListener("click",()=>{
     }
 
 });
-
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme) {
-    if (savedTheme === "dark") {
-        body.classList.add("dark-mode");
-    }
-} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    body.classList.add("dark-mode");
-}
