@@ -233,6 +233,8 @@ html{
 }
 
 .corner-tick {
+
+    
     position: absolute;
     width: 5px;
     height: 5px;
@@ -512,7 +514,7 @@ html{
 .about-section {
     background-color: var(--brand-green);
     color: var(--pure-white);
-    padding-bottom: 80px;
+    padding-bottom: 20px;
     /* padding: 80px 20px; */
     margin-top: 100px;
     
@@ -542,7 +544,7 @@ html{
 
 .about-text h2 {
     font-size: 38px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .about-text h2 span { color: var(--brand-orange); }
 
@@ -989,7 +991,7 @@ body.dark-mode footer{
 
 .contact-info h2 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contact-info h2 span {
@@ -999,14 +1001,14 @@ body.dark-mode footer{
 .contact-info p {
     line-height: 1.8;
     text-align: justify;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .contact-details {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 1px;
 }
 
 .contact-item {
@@ -1033,7 +1035,10 @@ body.dark-mode footer{
 
 .social-links {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .social-links a {
@@ -1066,7 +1071,7 @@ body.dark-mode footer{
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     border: none;
     border-radius: 10px;
     background: #064ea7;
