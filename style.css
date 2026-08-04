@@ -925,5 +925,38 @@ body.dark-mode footer{
         flex-wrap:wrap;
 
     }
+/* About Section Mobile */
+.about-container{
 
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    text-align: center;
+
+    gap: 30px;
+
+}
+
+.circular-bg{
+
+    margin: 0 auto;
+    order: 1;
+
+}
+
+.about-text{
+
+    order: 2;
+    width: 100%;
+
+}
+
+.counter-grid{
+
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
 }
