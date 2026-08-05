@@ -1197,7 +1197,7 @@ body.dark-mode .footer{
     top:80px;
     left:-103%;
     width:100%;
-    background:var(--brand-green);
+    background:var(--nav-bg);
 
     display:flex;
     flex-direction:column;
