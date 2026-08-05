@@ -6,13 +6,15 @@
     --text-color: #1a1a1a;
     --card-color: #ffffff;
 
-     --pure-white:#ffffff;
+    --pure-white:#ffffff;
 
     --dark-charcoal:#1a1a1a;
 
     /* Brand Colors */
     --brand-green: #32753f;
     --brand-orange: #ffa600d4;
+
+    --nav-bg: #32753f;
 
     /* Other */
     --muted-grey: #666666;
@@ -472,7 +474,7 @@ html{
 
     transform:translateY(-10px) scale(1.03);
 
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    box-shadow:0 20px 40px rgba(197, 29, 29, 0.15);
 
 }
 
@@ -501,25 +503,44 @@ html{
 .card-link.ai-link { color: #2196F3; }
 
 /* ================= GREEN TO WHITE PROJECT GRADIENTS ================= */
-.project-grid .project-card:nth-child(1),
-.project-grid .project-card:nth-child(2) {
+body:not(.dark-mode) .project-grid .project-card:nth-child(1),
+body:not(.dark-mode) .project-grid .project-card:nth-child(2),
+body:not(.dark-mode) .project-grid .project-card:nth-child(3),
+body:not(.dark-mode) .project-grid .project-card:nth-child(4),
+body:not(.dark-mode) .project-grid .project-card:nth-child(5),
+body:not(.dark-mode) .project-grid .project-card:nth-child(6)
+{
     background: linear-gradient(180deg, var(--brand-green) 0%, var(--pure-white) 100%);
     border-color: rgba(27, 59, 34, 0.1);
 }
 
-.project-grid .project-card:nth-child(1) h3,
-.project-grid .project-card:nth-child(2) h3 {
+body:not(.dark-mode) .project-grid .project-card:nth-child(1) h3,
+body:not(.dark-mode) .project-grid .project-card:nth-child(2) h3,
+body:not(.dark-mode) .project-grid .project-card:nth-child(3) h3,
+body:not(.dark-mode) .project-grid .project-card:nth-child(4) h3,
+body:not(.dark-mode) .project-grid .project-card:nth-child(5) h3,
+body:not(.dark-mode) .project-grid .project-card:nth-child(6) h3
+{
     color: var(--pure-white);
 }
 
-.project-grid .project-card:nth-child(1) p,
-.project-grid .project-card:nth-child(2) p {
+body:not(.dark-mode) .project-grid .project-card:nth-child(1) p,
+body:not(.dark-mode) .project-grid .project-card:nth-child(2) p,
+body:not(.dark-mode) .project-grid .project-card:nth-child(3) p,
+body:not(.dark-mode) .project-grid .project-card:nth-child(4) p,
+body:not(.dark-mode) .project-grid .project-card:nth-child(5) p,
+body:not(.dark-mode) .project-grid .project-card:nth-child(6) p
+{
     color: #e2ebe4;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.project-grid .project-card:nth-child(1) .card-link,
-.project-grid .project-card:nth-child(2) .card-link {
+body:not(.dark-mode) .project-grid .project-card:nth-child(1) .card-link,
+body:not(.dark-mode) .project-grid .project-card:nth-child(2) .card-link,
+body:not(.dark-mode) .project-grid .project-card:nth-child(3) .card-link,
+body:not(.dark-mode) .project-grid .project-card:nth-child(4) .card-link,
+body:not(.dark-mode) .project-grid .project-card:nth-child(5) .card-link,
+body:not(.dark-mode) .project-grid .project-card:nth-child(6) .card-link {
     color: var(--brand-green);
     display: inline-block;
     margin-top: 15px;
@@ -920,7 +941,8 @@ body.dark-mode{
     --text-color:#f2f2f2;
     --card-color:#1f1f1f;
     --muted-grey:#c0c0c0;
-    --brand-green:#217131;
+    --brand-green:#252121;
+    --nav-bg:#181818;
 
     background:var(--bg-color);
     color:var(--text-color);
@@ -928,12 +950,28 @@ body.dark-mode{
 }
 
 body.dark-mode .hero-clean{
-    background:#121212 !important;
+    background:#2e2626 !important;
+}
+body:not(.dark-mode) .project-grid .project-card{
+    background: linear-gradient(
+        180deg,
+        var(--brand-green) 0%,
+        var(--pure-white) 100%
+    );
+    border-color: rgba(27,59,34,.1);
 }
 
-body.dark-mode .project-card{
-    background:#1f1f1f;
-    color:white;
+body:not(.dark-mode) .project-grid .project-card h3{
+    color: var(--pure-white);
+}
+
+body:not(.dark-mode) .project-grid .project-card p{
+    color:#e2ebe4;
+    text-shadow:0 1px 2px rgba(0,0,0,.2);
+}
+
+body:not(.dark-mode) .project-grid .project-card .card-link{
+    color:var(--brand-green);
 }
 
 body.dark-mode .about-section{
@@ -941,6 +979,7 @@ body.dark-mode .about-section{
 }
 
 body.dark-mode .floating-nav{
+    background: var(--nav-bg);
     background:#9a024b;
 }
 
