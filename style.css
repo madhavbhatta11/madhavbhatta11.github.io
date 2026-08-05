@@ -1190,6 +1190,7 @@ body.dark-mode .footer{
 
     .hamburger{
         display:flex;
+        order:2;
     }
 
     .nav-menu{
@@ -1471,35 +1472,43 @@ body.dark-mode .contact-form textarea{
 }
 
 /* ============ Mobile ============ */
+/* Mobile */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-    .contact-container {
-        flex-direction: column;
-        gap: 50px;
+    .hamburger{
+        display:flex;
     }
 
-    .contact-info,
-    .contact-form {
-        width: 100%;
+    .nav-menu{
+        position:absolute;
+        top:80px;
+        left:-103%;
+        width:100%;
+        background:var(--brand-green);
+
+        display:flex;
+        flex-direction:column;
+
+        padding:20px;
+        border-radius:20px;
+
+        max-height:80vh;
+        overflow-y:auto;
+
+        transition:.5s;
     }
 
-    .contact-info h2 {
-        text-align: center;
-        font-size: 2rem;
+    .nav-menu.active{
+
+        left:0;
+
     }
 
-    .contact-info p {
-        text-align: justify;
-    }
+    .nav-cta{
 
-    .social-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+        display:none;
 
-    .contact-form button {
-        width: 100%;
     }
 
 }
@@ -1582,6 +1591,24 @@ body.dark-mode .dropdown-content li a:hover{
         order:2;
         text-align:center;
         align-items:center;
+    }
+     .nav-container{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    
+    .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    }
+
+    /* Put theme button and hamburger together */
+    .nav-container > .hamburger,
+    .nav-container > .theme-btn{
+        position:relative;
+        z-index:1001;
     }
 
 }
