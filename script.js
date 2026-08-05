@@ -1,3 +1,4 @@
+touchEventsTarget: "container"
 const swiper = new Swiper(".photoSwiper", {
 
     effect: "coverflow",
@@ -9,12 +10,12 @@ const swiper = new Swiper(".photoSwiper", {
     loop: true,
 
     slidesPerView: 3,       // Show only 3 photos
-    spaceBetween: -40,  // Adjust the space between photos
+    spaceBetween: -60,  // Adjust the space between photos
 
-    speed: 1200,
+    speed: 2500,
 
     autoplay: {
-        delay: 4000,
+        delay: 600,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
@@ -25,11 +26,11 @@ const swiper = new Swiper(".photoSwiper", {
 
     stretch:-60,
 
-    depth:220,
+    depth:400,
 
     modifier:2,
 
-    scale:.85,
+    scale:.75,
 
     slideShadows:false,
 
