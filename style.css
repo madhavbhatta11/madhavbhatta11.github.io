@@ -211,11 +211,6 @@ html{
 }
 
 /* ================= FIGMA HERO LAYOUT ================= */
-.hero-clean {
-    background-color: var(--card-color) !important;
-    padding: 60px 20px 100px 20px;
-    overflow: hidden;
-}
 
 .hero-clean .hero-container {
     max-width: 1100px;
@@ -592,6 +587,13 @@ body.dark-mode .project-card .card-link {
     color: var(--brand-orange);
 }
 
+/* ================= Light mode - PHOTOGRAPHY ================= */
+.photography-section h2{
+    font-size:36px;
+    color:var(--brand-green);
+    margin-bottom:30px;
+}
+
 /* ================= DARK MODE - PHOTOGRAPHY ================= */
 
 body.dark-mode .photography-section {
@@ -682,8 +684,7 @@ body.dark-mode .photography-card p {
 .project-btn:hover { background: #388e3c; }
 .ai-btn { background: #2196F3; }
 .ai-btn:hover { background: #1976d2; }
-.cv-buttons { margin-top: 20px; }
-.cv-buttons a { margin-right: 10px; }
+
 
 .contact { text-align: center; padding: 50px; }
 .contact-box {
@@ -717,9 +718,23 @@ body.dark-mode .photography-card p {
 }
 .cv-card h1 { font-size: 40px; margin-bottom: 20px; color: #222; }
 .cv-text { font-size: 18px; line-height: 1.8; color: #666; margin-bottom: 35px; }
-.cv-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.cv-buttons a { font-size: 17px; padding: 12px 24px; transition: .3s; }
-.cv-buttons a:hover { transform: translateY(-3px); }
+.cv-buttons{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.cv-buttons a{
+    font-size:17px;
+    padding:12px 24px;
+    transition:.3s;
+}
+
+.cv-buttons a:hover { 
+    transform: translateY(-3px); 
+}
 
 .study { text-align: center; padding: 60px 20px; }
 .study h1 { font-size: 42px; margin-bottom: 20px; }
@@ -996,15 +1011,18 @@ body.dark-mode .photography-card p {
 }
 
 .hero-clean {
+    background-color: var(--card-color) !important;
+    padding: 60px 20px 100px;
+    overflow: hidden;
     position: relative;
     z-index: 1;
 }
 
-.floating-nav {
+/* .floating-nav {
     position: sticky;
     top: 20px;
     z-index: 99999;
-}
+} */
 
 /* Dark Mode */
 
@@ -1202,13 +1220,13 @@ body.dark-mode .footer{
 
 }
 }
-/* <!--Contact Section Mobile--!> */
+/* --Contact Section Mobile-- */
 /* ================= CONTACT SECTION ================= */
 
 .contact-section {
     margin-top: 80px;
     padding: 80px 8%;
-    background: var(--brand-green);
+    background: var(--nav-bg);
     color: #fff;
     padding-bottom: 120px;
 }
