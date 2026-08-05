@@ -57,6 +57,8 @@ html{
 }
 .logo{
     margin-right:40px;
+    margin:0;
+    line-height:1;
 }
 .nav-menu{
     display:flex;
@@ -90,10 +92,9 @@ html{
 } */
 
 .theme-btn{
-    margin:00px 0;
     width:42px;
     height:42px;
-    margin:0;
+    margin:-100000;
     padding:0;
 }
 
@@ -227,8 +228,8 @@ html{
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:10px;
-    transition:.3s;
+    margin-top:0px;
+    transition:.5s;
 
 }
 
