@@ -1700,3 +1700,10 @@ body.dark-mode .dropdown-content li a:hover{
         transform:translateX(0);
     }
 }
+/* for floating pills */
+.floating-pill{
+    position:absolute;
+    transition:transform .15s ease;
+    will-change:transform;
+    pointer-events:auto;
+}

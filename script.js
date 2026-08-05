@@ -83,3 +83,57 @@ window.addEventListener("scroll", () => {
     });
 
 });
+// for floating pills
+// Floating Pills Animation
+const heroGraphic = document.querySelector(".hero-graphic-side");
+const pills = document.querySelectorAll(".floating-pill");
+
+const maxDistance = 450; // Detection radius
+
+heroGraphic.addEventListener("mousemove", (e) => {
+
+    pills.forEach((pill) => {
+
+        const rect = pill.getBoundingClientRect();
+
+        const dx = e.clientX - (rect.left + rect.width / 2);
+        const dy = e.clientY - (rect.top + rect.height / 2);
+
+        const distance = Math.hypot(dx, dy);
+
+        if (distance < maxDistance) {
+
+            const power = (maxDistance - distance) / maxDistance;
+
+            gsap.to(pill, {
+                x: dx * power * 0.45,
+                y: dy * power * 0.45,
+                duration: 0.18,
+                ease: "power3.out"
+            });
+
+        } else {
+
+            gsap.to(pill, {
+                x: 0,
+                y: 0,
+                duration: 0.45,
+                ease: "power3.out"
+            });
+
+        }
+
+    });
+
+});
+
+heroGraphic.addEventListener("mouseleave", () => {
+
+    gsap.to(".floating-pill", {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "elastic.out(1,0.5)"
+    });
+
+});
