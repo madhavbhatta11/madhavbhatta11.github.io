@@ -19,6 +19,8 @@
     /* Other */
     --muted-grey: #666666;
     --font-main: 'Plus Jakarta Sans', sans-serif;
+
+    --theme-btn-hover: rgba(0,0,0,.08);
 }
 
 * {
@@ -86,16 +88,6 @@ html{
     align-items:center;
     gap:18px;
     list-style:none;
-}
-/* .nav-menu li:last-child{
-    margin-left:-18px;
-} */
-
-.theme-btn{
-    width:42px;
-    height:42px;
-    margin:-100000;
-    padding:0;
 }
 
 .floating-nav .logo {
@@ -212,32 +204,37 @@ html{
 }
 
 .theme-btn{
-
     width:42px;
     height:42px;
-
     border:none;
-    outline:none;
-
-    border-radius:50%;
-
+    border-radius:50%; 
     background:transparent;
-
     cursor:pointer;
-
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:0px;
-    transition:.5s;
-
 }
 
+.theme-btn i{
+    color:#fff;
+    font-size:20px;
+}
+
+.hidden{
+    display:none !important;
+}
 .theme-btn:hover{
-
-    background:rgba(255,255,255,.15);
-
+    background: var(--theme-btn-hover);
+    border-radius:50%;
+    transform:scale(1.08);
 }
+
+
+.theme-btn:focus-visible{
+    outline:none;
+    box-shadow:0 0 0 3px rgba(0, 30, 255, 0.5);
+}
+
 
 /* Keep menu open while hovering over either the button OR the menu */
 .dropdown:hover .dropdown-content,
@@ -1172,6 +1169,9 @@ body.dark-mode{
     background:var(--bg-color);
     color:var(--text-color);
 
+    /* for dark mode icon */
+    --theme-btn-hover: rgba(255,255,255,.15);
+
 }
 body.dark-mode .projects-section .section-header h2{
     color:#ffffff;
@@ -1202,11 +1202,6 @@ body.dark-mode .footer{
 
 }
 
-.hidden{
-
-    display:none;
-
-}
 
 /* Hamburger */
 
