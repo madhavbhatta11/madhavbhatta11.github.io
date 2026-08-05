@@ -562,6 +562,47 @@ body:not(.dark-mode) .project-grid .project-card:nth-child(6) .card-link {
     display: inline-block;
     margin-top: 15px;
 }
+/* ================= DARK MODE - PROJECT SECTION ================= */
+
+body.dark-mode .project-card {
+    background: var(--card-color);
+    border-color: #333;
+}
+
+body.dark-mode .project-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .project-card p {
+    color: #d0d0d0;
+    text-shadow: none;
+}
+
+body.dark-mode .project-card .card-link {
+    color: var(--brand-orange);
+}
+
+/* ================= DARK MODE - PHOTOGRAPHY ================= */
+
+body.dark-mode .photography-section {
+    background: var(--bg-color);
+}
+
+body.dark-mode .photography-section h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .photography-card {
+    background: var(--card-color);
+}
+
+body.dark-mode .photography-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .photography-card p {
+    color: #d0d0d0;
+}
 
 /* ================= ABOUT SECTION ================= */
 .about-section {
