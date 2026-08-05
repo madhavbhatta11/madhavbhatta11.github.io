@@ -6,6 +6,10 @@
     --text-color: #1a1a1a;
     --card-color: #ffffff;
 
+     --pure-white:#ffffff;
+
+    --dark-charcoal:#1a1a1a;
+
     /* Brand Colors */
     --brand-green: #32753f;
     --brand-orange: #ffa600d4;
@@ -187,7 +191,7 @@ html{
     display:flex;
     justify-content:center;
     align-items:center;
-
+    margin-top:10px;
     transition:.3s;
 
 }
@@ -263,7 +267,7 @@ html{
 .hero-text-side p {
     color: var(--muted-grey);
     font-size: 15px;
-    max-width: 480px;
+    max-width:100%;
     margin-bottom: 35px;
     line-height: 1.7;
 }
@@ -451,15 +455,26 @@ html{
     gap: 30px;
 }
 
-.project-card {
+.projects-section .project-card{
     background: var(--card-color);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(34, 7, 240, 0.03);
     border: 1px solid #eaeaea;
     transition: transform 0.3s;
+    cursor:pointer;
 }
-.project-card:hover { transform: translateY(-5px); }
+.projects-section .project-card{
+    transition:.35s ease;
+}
+
+.projects-section .project-card:hover{
+
+    transform:translateY(-10px) scale(1.03);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
 
 .card-icon {
     font-size: 32px;
@@ -515,7 +530,7 @@ html{
     background-color: var(--brand-green);
     color: var(--pure-white);
     padding-bottom: 20px;
-    /* padding: 80px 20px; */
+    padding: 60px 20px;
     margin-top: 100px;
     
 }
@@ -548,10 +563,11 @@ html{
 }
 .about-text h2 span { color: var(--brand-orange); }
 
-.counter-grid {
-    display: flex;
-    gap: 40px;
-    margin: 30px 0;
+.counter-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:30px;
 }
 .counter-item h3 {
     font-size: 32px;
@@ -921,11 +937,11 @@ body.dark-mode .project-card{
 }
 
 body.dark-mode .about-section{
-    background:#0d2614;
+    background:#272323;
 }
 
 body.dark-mode .floating-nav{
-    background:#111;
+    background:#9a024b;
 }
 
 body.dark-mode footer{
@@ -971,28 +987,23 @@ body.dark-mode footer{
     }
 
     .nav-menu{
+    position:absolute;
+    top:80px;
+    left:-103%;
+    width:100%;
+    background:var(--brand-green);
 
-        display:flex;
+    display:flex;
+    flex-direction:column;
 
-        position:absolute;
+    padding:20px;
+    border-radius:20px;
 
-        top:80px;
+    max-height:80vh;
+    overflow-y:auto;
 
-        left:-100%;
-
-        width:100%;
-
-        background:var(--brand-green);
-
-        flex-direction:column;
-
-        padding:20px;
-
-        transition:.3s;
-
-        border-radius:20px;
-
-    }
+    transition:.5s;
+}
 
     .nav-menu.active{
 
@@ -1097,15 +1108,19 @@ body.dark-mode footer{
 
 }
 }
-<!--Contact Section Mobile-->
+/* <!--Contact Section Mobile--!> */
 /* ================= CONTACT SECTION ================= */
 
 .contact-section {
     margin-top: 80px;
     padding: 80px 8%;
-    background: #5fe407;
+    background: var(--brand-green);
     color: #fff;
     padding-bottom: 120px;
+}
+
+body.dark-mode .contact-section{
+    background:#1d231f;
 }
 
 .contact-container {
