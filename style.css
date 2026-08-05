@@ -52,9 +52,49 @@ html{
 
 .floating-nav .nav-container {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    width: 100%;
+}
+.logo{
+    margin-right:40px;
+}
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    list-style:none;
+
+    margin-left:auto;
+    margin-right:12px;   /* Distance between Contact and Dark Mode */
+}
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+}
+.nav-right{
+    display:flex;
+    align-items:left;
+    gap:20000px;   /* try 6px, 8px or 10px */
+}
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    list-style:none;
+}
+/* .nav-menu li:last-child{
+    margin-left:-18px;
+} */
+
+.theme-btn{
+    margin:00px 0;
+    width:42px;
+    height:42px;
+    margin:0;
+    padding:0;
 }
 
 .floating-nav .logo {
@@ -64,12 +104,6 @@ html{
 }
 .floating-nav .logo span { color: var(--brand-orange); }
 
-.floating-nav .nav-container > ul {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    align-items: center;
-}
 
 .floating-nav ul li a {
     position: relative;
@@ -1019,6 +1053,11 @@ body.dark-mode .project-card .card-link {
 
 @media (max-width:768px){
 
+    .hamburger{
+        display:flex;
+        order:2;
+    }
+
     .footer{
         padding:40px 20px;
     }
@@ -1193,10 +1232,15 @@ body.dark-mode .footer{
         order:2;
     }
 
+    .nav-right{
+        gap:10px;
+    }
+
+
     .nav-menu{
     position:absolute;
     top:80px;
-    left:-103%;
+    left:-1003%;
     width:100%;
     background:var(--nav-bg);
 
