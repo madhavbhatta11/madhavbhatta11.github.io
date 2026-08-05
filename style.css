@@ -453,7 +453,7 @@ body.dark-mode .hero-text-side h1{
     font-weight: bold;
 }
 
-keyframes rotateSeal {
+@keyframes rotateSeal {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
