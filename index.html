@@ -13,6 +13,12 @@
         <!-- Font Awesome -->
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+        <!--Swiper CSS-->
+        <linkrel="stylesheet" 
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+        
     </head>
 <body>
 
@@ -21,12 +27,12 @@
     <div class="nav-container">
         <h2 class="logo"><span>. </span>Madhav Bhatta</h2>
 
-        <div class="hamburger">
+        <div class="hamburger" id="hamburger">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <ul class="nav-menu">
+        <ul class="nav-menu" id="nav-menu">
             <li><a class="nav-link" href="#home">Home</a></li>
             <li><a class="nav-link" href="#about">About</a></li>
             <li><a class="nav-link" href="study materials.html">Study Materials</a></li>
@@ -357,14 +363,47 @@
 
 
 <!-- Photography Section -->
-<section id="photography" class="photography-section">
+<section class="photography-section" id="photography">
+
     <div class="section-header">
-        <h2>Photography</h2>
+        <h1>Photography...</h1>
     </div>
-    <div class="photography-content">
-        <p>Here are some of my favorite shots:</p>
-        <!-- Add your photography content here -->
+
+    <div class="swiper photoSwiper">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo1.jpeg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo2.jpeg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo3.jpeg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo4.jpeg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo5.jpeg" alt="">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="assets/images/photo6.jpeg" alt="">
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
     </div>
+
 </section>
 <!-- contact section -->
 <section id="contact" class="contact-section">
@@ -479,9 +518,20 @@
     </div>
 </footer>
 
+<!-- Swiper CSS -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-<script src="navbar.js"></script>
+...
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Theme -->
 <script src="theme.js"></script>
-<script src="scrollspy.js"></script>
+
+<!-- Your swiper code -->
+<script src="script.js"></script>
+
 </body>
 </html>
