@@ -179,11 +179,24 @@ window.onload = type;
 gsap.from(".about-container", {
     y: 80,
     opacity: 0,
-    duration: 1,
+    duration: 2,
     ease: "power3.out",
 
     scrollTrigger: {
         trigger: ".about-section",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
+
+gsap.from(".hero-container", {
+    y: 80,
+    opacity: 0,
+    duration: 2,
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: ".hero-clean",
         start: "top 80%",
         toggleActions: "play none none none"
     }
