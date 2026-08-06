@@ -81,7 +81,7 @@ html{
 .nav-right{
     display:flex;
     align-items:left;
-    gap:20000px;   /* try 6px, 8px or 10px */
+    gap:12px;   /* try 6px, 8px or 10px */
 }
 
 .nav-menu{
@@ -590,47 +590,22 @@ body.dark-mode .hero-text-side h1{
 .card-link.ai-link { color: #2196F3; }
 
 /* ================= GREEN TO WHITE PROJECT GRADIENTS ================= */
-body:not(.dark-mode) .project-grid .project-card:nth-child(1),
-body:not(.dark-mode) .project-grid .project-card:nth-child(2),
-body:not(.dark-mode) .project-grid .project-card:nth-child(3),
-body:not(.dark-mode) .project-grid .project-card:nth-child(4),
-body:not(.dark-mode) .project-grid .project-card:nth-child(5),
-body:not(.dark-mode) .project-grid .project-card:nth-child(6)
-{
+body:not(.dark-mode) .project-grid .project-card{
     background: linear-gradient(180deg, var(--brand-green) 0%, var(--pure-white) 100%);
-    border-color: rgba(27, 59, 34, 0.1);
+    border-color: rgba(27,59,34,.1);
 }
 
-body:not(.dark-mode) .project-grid .project-card:nth-child(1) h3,
-body:not(.dark-mode) .project-grid .project-card:nth-child(2) h3,
-body:not(.dark-mode) .project-grid .project-card:nth-child(3) h3,
-body:not(.dark-mode) .project-grid .project-card:nth-child(4) h3,
-body:not(.dark-mode) .project-grid .project-card:nth-child(5) h3,
-body:not(.dark-mode) .project-grid .project-card:nth-child(6) h3
-{
-    color: var(--pure-white);
+body:not(.dark-mode) .project-grid .project-card h3{
+    color: white;
 }
 
-body:not(.dark-mode) .project-grid .project-card:nth-child(1) p,
-body:not(.dark-mode) .project-grid .project-card:nth-child(2) p,
-body:not(.dark-mode) .project-grid .project-card:nth-child(3) p,
-body:not(.dark-mode) .project-grid .project-card:nth-child(4) p,
-body:not(.dark-mode) .project-grid .project-card:nth-child(5) p,
-body:not(.dark-mode) .project-grid .project-card:nth-child(6) p
-{
+body:not(.dark-mode) .project-grid .project-card p{
     color: #e2ebe4;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
-body:not(.dark-mode) .project-grid .project-card:nth-child(1) .card-link,
-body:not(.dark-mode) .project-grid .project-card:nth-child(2) .card-link,
-body:not(.dark-mode) .project-grid .project-card:nth-child(3) .card-link,
-body:not(.dark-mode) .project-grid .project-card:nth-child(4) .card-link,
-body:not(.dark-mode) .project-grid .project-card:nth-child(5) .card-link,
-body:not(.dark-mode) .project-grid .project-card:nth-child(6) .card-link {
+body:not(.dark-mode) .project-grid .project-card .card-link{
     color: var(--brand-green);
-    display: inline-block;
-    margin-top: 15px;
 }
 /* ================= DARK MODE - PROJECT SECTION ================= */
 
@@ -1323,15 +1298,18 @@ body.dark-mode .footer{
 }
 
     .whatsapp-float{
+        animation: whatsappPulse 2.5s infinite;
+        
 
-        width:55px;
-        height:55px;
+        width:45px;
+        height:45px;
 
-        bottom:20px;
+        bottom:25px;
         right:20px;
 
-        font-size:30px;
+        font-size:22px;
     }
+    
 
 }
 
@@ -1804,13 +1782,15 @@ body.dark-mode .dropdown-content li a:hover{
 
 .whatsapp-float{
 
+    animation: whatsappPulse 2.5s infinite;
     position:fixed;
 
     bottom:30px;
     right:30px;
 
-    width:60px;
-    height:60px;
+    width:50px;
+    height:50px;
+    font-size:34px; 
 
     background:#25D366;
     color:#fff;
@@ -1830,6 +1810,21 @@ body.dark-mode .dropdown-content li a:hover{
     transition:.3s;
 
     z-index:9999;
+}
+.whatsapp-float{
+    animation: whatsappPulse 2.5s infinite;
+}
+
+@keyframes whatsappPulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(37,211,102,.6);
+    }
+    70%{
+        box-shadow:0 0 0 15px rgba(37,211,102,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
 }
 
 .whatsapp-float:hover{
