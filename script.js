@@ -50,14 +50,16 @@ const swiper = new Swiper(".photoSwiper", {
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
+const sections = document.querySelectorAll("section[id], header[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+
 hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 });
 
 // ================= Active Navigation on Scroll =================
 
-const sections = document.querySelectorAll("section[id], header[id]");
-const navLinks = document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll", () => {
 
@@ -77,14 +79,10 @@ window.addEventListener("scroll", () => {
     });
 
     navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
     });
+});
 
 });
 // for floating pills
