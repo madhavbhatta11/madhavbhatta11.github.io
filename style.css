@@ -1322,7 +1322,20 @@ body.dark-mode .footer{
 
 }
 
+    .whatsapp-float{
+
+        width:55px;
+        height:55px;
+
+        bottom:20px;
+        right:20px;
+
+        font-size:30px;
+    }
+
 }
+
+
 
 /* ================= HERO MOBILE ================= */
 
@@ -1785,4 +1798,45 @@ body.dark-mode .dropdown-content li a:hover{
 .contact-item a{
     text-decoration: none;
     color: inherit;
+}
+
+/* Floating WhatsApp Button */
+
+.whatsapp-float{
+
+    position:fixed;
+
+    bottom:30px;
+    right:30px;
+
+    width:60px;
+    height:60px;
+
+    background:#25D366;
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:34px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
+.whatsapp-float:hover{
+
+    background:#1ebe5d;
+
+    transform:translateY(-5px) scale(1.08);
+
+    color:#fff;
 }
