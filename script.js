@@ -227,3 +227,45 @@ gsap.from(".footer-container", {
         toggleActions: "play none none none"
     }
 });
+// for counter animation
+const counters = document.querySelectorAll(".counter");
+
+ScrollTrigger.create({
+    trigger: ".about-section",
+    start: "top 75%",
+
+    onEnter: () => {
+
+        counters.forEach(counter => {
+
+            const target = +counter.dataset.target;
+
+            gsap.to(counter, {
+
+                innerText: target,
+
+                duration: 2,
+
+                snap: { innerText: 1 },
+
+                ease: "power2.out",
+
+                onUpdate: function () {
+
+                    counter.innerText = Math.ceil(counter.innerText);
+
+                },
+
+                onComplete: function () {
+
+                    counter.innerText += "+";
+
+                }
+
+            });
+
+        });
+
+    }
+
+});
