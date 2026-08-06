@@ -194,15 +194,10 @@ gsap.from(".about-container", {
 gsap.from(".hero-container", {
     y: 80,
     opacity: 0,
-    duration: 2,
-    ease: "power3.out",
-
-    scrollTrigger: {
-        trigger: ".hero-clean",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    }
+    duration: 1.5,
+    ease: "power3.out"
 });
+
 gsap.from(".contact-container", {
     y: 80,
     opacity: 0,
@@ -269,3 +264,17 @@ ScrollTrigger.create({
     }
 
 });
+// for projects animation
+// gsap.from(".project-card", {
+//     y: 80,
+//     opacity: 0,
+//     duration: 1,
+//     stagger: 0.2,
+//     ease: "power3.out",
+
+//     scrollTrigger: {
+//         trigger: ".projects-section",
+//         start: "top 75%",
+//         toggleActions: "play none none none"
+//     }
+// });
