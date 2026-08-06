@@ -460,31 +460,42 @@
         </div>
 
         <div class="contact-form">
-            <form action="#" method="POST">
+                <form id="contact-form">
 
-                <div class="input-group">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                </div>
+                    <div class="input-group">
+                        <input type="text"
+                            name="from_name"
+                            placeholder="Your Name"
+                            required>
+                    </div>
 
-                <div class="input-group">
-                    <input type="email" name="email" placeholder="Your Email" required>
-                </div>
+                    <div class="input-group">
+                        <input type="email"
+                            name="from_email"
+                            placeholder="Your Email"
+                            required>
+                    </div>
 
-                <div class="input-group">
-                    <input type="text" name="subject" placeholder="Subject" required>
-                </div>
+                    <div class="input-group">
+                        <input type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            required>
+                    </div>
 
-                <div class="input-group">
-                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                </div>
+                    <div class="input-group">
+                        <textarea name="message"
+                                rows="6"
+                                placeholder="Your Message"
+                                required></textarea>
+                    </div>
 
-                <button type="submit" class="btn">
-                    Send Message
-                </button>
+                    <button type="submit" class="btn">
+                        Send Message
+                    </button>
 
-            </form>
-            
-        </div>
+                </form>
+            </div>
     </div>
     </section>
 
@@ -549,6 +560,9 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <!-- Theme -->
 <script src="theme.js"></script>
+
+<!-- for email links -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <!-- Your swiper code -->
 <script src="script.js"></script>
