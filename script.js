@@ -1,7 +1,9 @@
 gsap.registerPlugin(ScrollTrigger);
-touchEventsTarget: "container"
+
 
 const swiper = new Swiper(".photoSwiper", {
+
+    touchEventsTarget: "container",
 
     effect: "coverflow",
 
@@ -174,7 +176,7 @@ function type() {
     setTimeout(type, deleting ? 30 : 120);
 }
 
-window.onload = type;
+window.addEventListener("load", type);
 // for scroll reveal
 gsap.from(".about-container", {
     y: 80,
@@ -201,3 +203,16 @@ gsap.from(".hero-container", {
         toggleActions: "play none none none"
     }
 });
+gsap.from(".contact-container", {
+    y: 80,
+    opacity: 0,
+    duration: 2,
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: ".contact-section",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
+
