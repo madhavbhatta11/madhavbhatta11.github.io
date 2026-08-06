@@ -215,4 +215,15 @@ gsap.from(".contact-container", {
         toggleActions: "play none none none"
     }
 });
+gsap.from(".footer-container", {
+    y: 80,
+    opacity: 0,
+    duration: 2,
+    ease: "power3.out",
 
+    scrollTrigger: {
+        trigger: ".footer",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
