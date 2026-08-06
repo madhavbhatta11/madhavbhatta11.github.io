@@ -269,12 +269,13 @@ html{
 .designer-badge{
     display:inline-flex;
     align-items:center;
-    gap:4px;
+    gap:2px;
 }
 
 .terminal-prefix{
     color:#00ff88;
     font-weight:bold;
+    animation: blinkTerminal 1s infinite;
 }
 
 #typing-text{
@@ -284,14 +285,17 @@ html{
 }
 
 .terminal-cursor{
-    width:2px;
+    width:1px;
     height:18px;
     background:#00ff88;
     display:inline-block;
-    animation:blinkCursor .8s infinite;
+    animation: blinkTerminal 2s infinite;
 }
 
-@keyframes blinkCursor{
+@keyframes blinkTerminal{
+    0%,100%{
+        opacity:1;
+    }
     50%{
         opacity:0;
     }
@@ -1834,4 +1838,46 @@ body.dark-mode .dropdown-content li a:hover{
     transform:translateY(-5px) scale(1.08);
 
     color:#fff;
+}
+/* for whatsapp message popup */
+.whatsapp-message{
+
+    position:fixed;
+
+    right:70px;
+    bottom:35px;
+
+    background:#ffffff;
+
+    border:1px solid #d6d6d6;
+
+    padding:8px 16px;
+
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    gap:4px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+
+    z-index:9998;
+
+    font-size:16px;
+    font-weight:600;
+
+    overflow:hidden;
+}
+
+.whatsapp-message #whatsapp-typing{
+    color:var(--brand-orange);
+    font-family:"Courier New", monospace;
+    font-weight:700;
+}
+
+body.dark-mode .whatsapp-message{
+
+    background:#252525;
+    border-color:#444;
+    color:white;
 }

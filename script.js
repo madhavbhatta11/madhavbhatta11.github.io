@@ -367,3 +367,56 @@ contactForm.addEventListener("submit", function (e) {
     });
 
 });
+
+// ================= WhatsApp Typing =================
+
+const whatsappText = document.getElementById("whatsapp-typing");
+
+if (whatsappText) {
+
+    const messages = [
+        "Need Help?",
+        "Let's Chat!"
+    ];
+
+    let messageIndex = 0;
+    let letterIndex = 0;
+    let deleting = false;
+
+    function whatsappTyping() {
+
+        const current = messages[messageIndex];
+
+        if (!deleting) {
+
+            whatsappText.textContent = current.substring(0, letterIndex);
+
+            letterIndex++;
+
+            if (letterIndex > current.length) {
+
+                deleting = true;
+                setTimeout(whatsappTyping, 1500);
+                return;
+            }
+
+        } else {
+
+            whatsappText.textContent = current.substring(0, letterIndex);
+
+            letterIndex--;
+
+            if (letterIndex < 0) {
+
+                deleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+            }
+        }
+
+        setTimeout(whatsappTyping, deleting ? 40 : 100);
+    }
+
+    whatsappTyping();
+}
+
+
