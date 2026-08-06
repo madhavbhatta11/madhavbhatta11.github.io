@@ -137,3 +137,39 @@ heroGraphic.addEventListener("mouseleave", () => {
     });
 
 });
+// for typing effect
+const typingText = document.getElementById("typing-text");
+
+const words = [
+    "Hello Human: Dream, Code, Fail, Learn, Repeat."
+];
+
+let i = 0;
+let j = 0;
+let deleting = false;
+
+function type() {
+
+    if (!deleting) {
+        typingText.textContent = words[i].slice(0, ++j);
+
+        if (j === words[i].length) {
+            deleting = true;
+            setTimeout(type, 1000);
+            return;
+        }
+
+    } else {
+
+        typingText.textContent = words[i].slice(0, --j);
+
+        if (j === 0) {
+            deleting = false;
+        }
+
+    }
+
+    setTimeout(type, deleting ? 30 : 120);
+}
+
+window.onload = type;

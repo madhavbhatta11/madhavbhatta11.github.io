@@ -264,6 +264,38 @@ html{
     margin-bottom: 25px;
     background: var(--pure-white);
 }
+/* for blinking text */
+.designer-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+}
+
+.terminal-prefix{
+    color:#00ff88;
+    font-weight:bold;
+}
+
+#typing-text{
+    color:var(--brand-orange);
+    font-family:"Courier New", monospace;
+    font-weight:700;
+}
+
+.terminal-cursor{
+    width:2px;
+    height:18px;
+    background:#00ff88;
+    display:inline-block;
+    animation:blinkCursor .8s infinite;
+}
+
+@keyframes blinkCursor{
+    50%{
+        opacity:0;
+    }
+}
+
 body.dark-mode .outline-pill-btn{
     border-color:white;
     color:white;
