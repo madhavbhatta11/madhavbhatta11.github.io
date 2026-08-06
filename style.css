@@ -1781,3 +1781,8 @@ body.dark-mode .dropdown-content li a:hover{
     background:var(--brand-orange);
     transform:translateX(-50%) translateY(-5px);
 }
+/* for contact icons */
+.contact-item a{
+    text-decoration: none;
+    color: inherit;
+}
