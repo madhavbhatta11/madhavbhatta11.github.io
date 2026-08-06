@@ -96,6 +96,12 @@ const maxDistance = 450; // Detection radius
 
 heroGraphic.addEventListener("mousemove", (e) => {
 
+    const rect = heroGraphic.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+
     pills.forEach((pill) => {
 
         const rect = pill.getBoundingClientRect();
@@ -278,3 +284,42 @@ ScrollTrigger.create({
 //         toggleActions: "play none none none"
 //     }
 // });
+gsap.from(".projects-card",{
+    y:80,
+    opacity:0,
+    stagger:.2,
+    duration:1,
+
+    scrollTrigger:{
+        trigger:".projects-section",
+        start:"top 80%"
+    }
+});
+
+// for back to top button
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 400){
+
+        backToTop.classList.add("show");
+
+    }else{
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+        behavior:"smooth"
+
+    });
+
+});

@@ -49,7 +49,7 @@ html{
     border-radius: 40px;
     position: sticky;
     top: 20px;
-    z-index: 1000;
+    z-index: 9999;
     box-shadow: 0 10px 30px rgba(27, 59, 34, 0.15);
 }
 
@@ -1739,4 +1739,45 @@ body.dark-mode .dropdown-content li a:hover{
     transition:transform .15s ease;
     will-change:transform;
     pointer-events:auto;
+}
+/* back to top button */
+.back-to-top{
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform: translateX(-50%) translateY(20px);
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--brand-green);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 9999;
+}
+.back-to-top.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%) translateY(0);
+}
+
+.back-to-top:hover{
+    background:var(--brand-orange);
+    transform:translateX(-50%) translateY(-5px);
 }
