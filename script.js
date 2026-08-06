@@ -284,17 +284,17 @@ ScrollTrigger.create({
 //         toggleActions: "play none none none"
 //     }
 // });
-gsap.from(".projects-card",{
-    y:80,
-    opacity:0,
-    stagger:.2,
-    duration:1,
+// gsap.from(".projects-card",{
+//     y:80,
+//     opacity:0,
+//     stagger:.2,
+//     duration:1,
 
-    scrollTrigger:{
-        trigger:".projects-section",
-        start:"top 80%"
-    }
-});
+//     scrollTrigger:{
+//         trigger:".projects-section",
+//         start:"top 80%"
+//     }
+// });
 
 // for back to top button
 const backToTop = document.getElementById("backToTop");
