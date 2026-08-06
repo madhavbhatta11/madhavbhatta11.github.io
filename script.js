@@ -1,4 +1,6 @@
+gsap.registerPlugin(ScrollTrigger);
 touchEventsTarget: "container"
+
 const swiper = new Swiper(".photoSwiper", {
 
     effect: "coverflow",
@@ -173,3 +175,16 @@ function type() {
 }
 
 window.onload = type;
+// for scroll reveal
+gsap.from(".about-container", {
+    y: 80,
+    opacity: 0,
+    duration: 1,
+    ease: "power3.out",
+
+    scrollTrigger: {
+        trigger: ".about-section",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+});
