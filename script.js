@@ -373,8 +373,8 @@ const whatsappText = document.getElementById("whatsapp-typing");
 if (whatsappText) {
 
     const messages = [
-        "Need Help?",
-        "Let's Chat!"
+        "Have an Idea?",
+        "Let's discuss!"
     ];
 
     let messageIndex = 0;
