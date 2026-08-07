@@ -1770,14 +1770,16 @@ body.dark-mode .dropdown-content li a:hover{
 
     transform: translateX(-50%) translateY(20px);
 
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
 
-    border: none;
+    border: 1px solid rgba(255,255,255,0.08);
     border-radius: 50%;
 
-    background: var(--brand-green);
-    color: white;
+    /* ChatGPT-like color */
+    background: rgba(52, 53, 65, 0.95);
+
+    color: #ffffff;
 
     display: flex;
     justify-content: center;
@@ -1788,19 +1790,29 @@ body.dark-mode .dropdown-content li a:hover{
     opacity: 0;
     visibility: hidden;
 
-    transition: .3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,.28);
+
+    backdrop-filter: blur(8px);
+
+    transition: all .3s ease;
 
     z-index: 9999;
 }
+
 .back-to-top.show{
-    opacity:1;
-    visibility:visible;
-    transform:translateX(-50%) translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .back-to-top:hover{
-    background:var(--brand-orange);
-    transform:translateX(-50%) translateY(-5px);
+    background: rgba(68,70,84,.98);
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+.back-to-top:active{
+    transform: translateX(-50%) scale(.95);
 }
 /* for contact icons */
 .contact-item a{
