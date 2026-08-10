@@ -890,7 +890,7 @@ body.dark-mode .project-card .card-link {
    ========================================================= */
 
 .study-header {
-    text-align: center;
+    text-align: justify;
     padding: 70px 20px 40px;
     background: var(--bg-color);
     color: var(--text-color);

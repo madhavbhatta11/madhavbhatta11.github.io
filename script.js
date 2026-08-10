@@ -1,14 +1,3 @@
-// ================= THEME PERSISTENCE =================
-
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "dark") {
-    document.body.classList.add("dark-mode");
-}
-
-
-// ================= GSAP =================
-
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -57,13 +46,10 @@ const swiper = new Swiper(".photoSwiper", {
     },
 
 });
-
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-
 const sections = document.querySelectorAll("section[id], header[id]");
 const navLinks = document.querySelectorAll(".nav-link");
-
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("nav-menu");
 
 hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
@@ -72,6 +58,7 @@ hamburger.addEventListener("click", () => {
 // ================= Active Navigation on Scroll =================
 
 
+// Active navigation
 window.addEventListener("scroll", () => {
 
     let current = "";
@@ -81,20 +68,35 @@ window.addEventListener("scroll", () => {
         const sectionTop = section.offsetTop - 120;
         const sectionHeight = section.offsetHeight;
 
-        if (window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight) {
-
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
             current = section.getAttribute("id");
         }
 
     });
 
     navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
+navLinks.forEach(link => {
     link.addEventListener("click", () => {
         navMenu.classList.remove("active");
-    });
-});
 
+        if (dropdown) {
+            dropdown.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+    });
 });
 // for floating pills
 // Floating Pills Animation
@@ -428,31 +430,4 @@ if (whatsappText) {
     whatsappTyping();
 }
 
-// remove this 
-document.addEventListener("DOMContentLoaded", function () {
 
-    const themeBtn = document.getElementById("themeBtn");
-
-    // Restore saved theme
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-        document.body.classList.add("dark-mode");
-    }
-
-    // Theme button
-    if (themeBtn) {
-        themeBtn.addEventListener("click", function () {
-
-            document.body.classList.toggle("dark-mode");
-
-            if (document.body.classList.contains("dark-mode")) {
-                localStorage.setItem("theme", "dark");
-            } else {
-                localStorage.setItem("theme", "light");
-            }
-
-        });
-    }
-
-});
