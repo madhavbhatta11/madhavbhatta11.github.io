@@ -869,7 +869,15 @@ body.dark-mode .project-card .card-link {
 /* ================= STUDY INFRASTRUCTURE ================= */
 .study-header { text-align: center; padding: 70px 20px 40px; background: #f8f9fa; }
 .study-header h1 { font-size: 45px; color: #222; margin-bottom: 20px; }
-.study-header p { max-width: 750px; margin: auto; font-size: 18px; color: #666; line-height: 1.8; }
+.study-header p { 
+    max-width: 750px; 
+    margin: auto; 
+    font-size: 18px; 
+    color: #666; 
+    line-height: 1.8;
+    text-align: justify;
+    hyphens: auto;
+ }
 .study-materials { padding: 50px 20px 80px; }
 .semester-container {
     max-width: 1100px;
@@ -2089,4 +2097,32 @@ body.dark-mode .whatsapp-message{
         line-height: 1.5;
     }
 
+}
+
+/* for semester pages dark mode*/
+body.dark-mode .subject-page {
+    color: var(--text-color);
+}
+
+body.dark-mode .subject-page h1 {
+    color: var(--text-color);
+}
+
+body.dark-mode .subject-page p {
+    color: var(--muted-grey);
+}
+
+body.dark-mode .file-section h2 {
+    color: var(--text-color);
+}
+
+body.dark-mode .file-item {
+    background: var(--card-color);
+    color: var(--text-color);
+    border-color: #333;
+}
+
+body.dark-mode .file-item:hover {
+    background: #2a2a2a;
+    border-color: var(--brand-green);
 }
