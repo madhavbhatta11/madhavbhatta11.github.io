@@ -1917,3 +1917,176 @@ body.dark-mode .whatsapp-message{
     border-color:#444;
     color:white;
 }
+
+
+/* =========================================
+   LECTURE NOTES / CHAPTERS
+========================================= */
+
+.chapter {
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+}
+
+/* Chapter heading */
+
+.chapter summary {
+    position: relative;
+
+    padding: 16px 20px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    color: inherit;
+
+    list-style: none;
+
+    transition: background 0.3s ease,
+                color 0.3s ease;
+}
+
+/* Remove default browser arrow */
+
+.chapter summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Custom + icon */
+
+.chapter summary::after {
+    content: "+";
+
+    position: absolute;
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 22px;
+    font-weight: 400;
+
+    transition: transform 0.3s ease;
+}
+
+/* Change + to − when opened */
+
+.chapter[open] summary::after {
+    content: "−";
+}
+
+/* Hover */
+
+.chapter summary:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Open chapter */
+
+.chapter[open] {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   SUBTOPICS
+========================================= */
+
+.subtopics {
+    padding: 15px 20px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================
+   FILE ITEMS
+========================================= */
+
+.subtopics .file-item {
+    display: block;
+
+    padding: 12px 15px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: inherit;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+/* File hover */
+
+.subtopics .file-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    transform: translateX(4px);
+}
+
+/* =========================================
+   FILE SECTION HEADING
+========================================= */
+
+.file-section > h2 {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .chapter {
+        margin: 12px 0;
+        border-radius: 10px;
+    }
+
+    .chapter summary {
+        padding: 14px 15px;
+
+        font-size: 15px;
+
+        padding-right: 45px;
+    }
+
+    .chapter summary::after {
+        right: 15px;
+        font-size: 20px;
+    }
+
+    .subtopics {
+        padding: 12px 12px 15px;
+
+        gap: 8px;
+    }
+
+    .subtopics .file-item {
+        padding: 11px 12px;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+}
