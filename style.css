@@ -299,15 +299,17 @@ html{
     }
 }
 
-body.dark-mode .outline-pill-btn{
-    border-color:white;
-    color:white;
+body.dark-mode .outline-pill-btn {
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.35);
 }
 
-body.dark-mode .outline-pill-btn:hover{
-    background:white;
-    color:#121212;
+body.dark-mode .outline-pill-btn:hover {
+    background: var(--pure-white);
+    color: #121212;
+    border-color: var(--pure-white);
 }
+
 body.dark-mode .designer-badge{
     background:#222;
     color:white;
@@ -356,25 +358,45 @@ body.dark-mode .hero-text-side h1{
 .hero-action-row {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+    flex-wrap: wrap;
 }
+/* ---------- Primary CTA ---------- */
 
 .split-pill-btn {
     display: inline-flex;
     align-items: center;
-    background-color: var(--brand-green);
-    border-radius: 40px;
+    gap: 12px;
+
+    padding: 6px 6px 6px 22px;
+
+    background: var(--brand-green);
+    color: var(--pure-white);
+
+    border: 1px solid var(--brand-green);
+    border-radius: 50px;
+
     text-decoration: none;
-    padding: 6px 6px 6px 24px;
-    transition: transform 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+
+    box-shadow: 0 8px 20px rgba(50, 117, 63, 0.15);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
 }
-.split-pill-btn:hover { transform: translateY(-2px); }
+.split-pill-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(50, 117, 63, 0.22);
+}
 
 .split-pill-btn .btn-lbl {
     color: var(--pure-white);
     font-weight: 600;
     font-size: 14px;
-    margin-right: 16px;
+    margin-right: 4px;
 }
 
 .split-pill-btn .btn-arr {
@@ -389,21 +411,45 @@ body.dark-mode .hero-text-side h1{
     font-size: 11px;
 }
 
+/* ---------- Secondary CTA ---------- */
+
 .outline-pill-btn {
-    display: inline-block;
-    border: 1px solid var(--dark-charcoal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    background: transparent;
     color: var(--dark-charcoal);
-    padding: 14px 32px;
-    border-radius: 40px;
+
+    border: 1px solid rgba(26, 26, 26, 0.35);
+    border-radius: 50px;
+
     text-decoration: none;
-    font-weight: 600;
+
     font-size: 14px;
-    transition: 0.2s;
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
 .outline-pill-btn:hover {
-    background-color: var(--dark-charcoal);
+    background: var(--dark-charcoal);
     color: var(--pure-white);
+
+    border-color: var(--dark-charcoal);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
+
 .hero-text-side{
     display:flex;
     flex-direction:column;
