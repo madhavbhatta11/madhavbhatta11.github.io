@@ -141,10 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             spaceBetween: -60,
 
-            speed: 2500,
+            speed: 1000,
 
             autoplay: {
-                delay: 600,
+                delay: 1000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
             },
