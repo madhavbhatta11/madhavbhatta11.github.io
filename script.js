@@ -1,277 +1,246 @@
-gsap.registerPlugin(ScrollTrigger);
+// ======================================================
+// SHARED SCRIPT.JS
+// Works across homepage + study materials + sub-pages
+// ======================================================
 
 
-const swiper = new Swiper(".photoSwiper", {
+// ======================================================
+// PAGE READY
+// ======================================================
 
-    touchEventsTarget: "container",
+document.addEventListener("DOMContentLoaded", () => {
 
-    effect: "coverflow",
+    // ==================================================
+    // GSAP
+    // ==================================================
 
-    grabCursor: true,
+    if (typeof gsap !== "undefined") {
 
-    centeredSlides: true,
-
-    loop: true,
-
-    slidesPerView: 3,       // Show only 3 photos
-    spaceBetween: -60,  // Adjust the space between photos
-
-    speed: 2500,
-
-    autoplay: {
-        delay: 600,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-    },
-
-   coverflowEffect:{
-
-    rotate:0,
-
-    stretch:-60,
-
-    depth:400,
-
-    modifier:2,
-
-    scale:.75,
-
-    slideShadows:false,
-
-},
-
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-
-});
-const sections = document.querySelectorAll("section[id], header[id]");
-const navLinks = document.querySelectorAll(".nav-link");
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
-
-hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-});
-
-// ================= Active Navigation on Scroll =================
-
-
-// Active navigation
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
-        ) {
-            current = section.getAttribute("id");
+        if (typeof ScrollTrigger !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
         }
 
-    });
+        // ----------------------------------------------
+        // Hero animation
+        // Only runs if hero exists
+        // ----------------------------------------------
 
-    navLinks.forEach(link => {
+        const heroContainer = document.querySelector(".hero-container");
 
-        link.classList.remove("active");
+        if (heroContainer) {
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
-
-    });
-
-});
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-
-        if (dropdown) {
-            dropdown.classList.remove("active");
-            navMenu.classList.remove("active");
-        }
-    });
-});
-// for floating pills
-// Floating Pills Animation
-const heroGraphic = document.querySelector(".hero-graphic-side");
-const pills = document.querySelectorAll(".floating-pill");
-
-const maxDistance = 450; // Detection radius
-
-heroGraphic.addEventListener("mousemove", (e) => {
-
-    const rect = heroGraphic.getBoundingClientRect();
-
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-
-    pills.forEach((pill) => {
-
-        const rect = pill.getBoundingClientRect();
-
-        const dx = e.clientX - (rect.left + rect.width / 2);
-        const dy = e.clientY - (rect.top + rect.height / 2);
-
-        const distance = Math.hypot(dx, dy);
-
-        if (distance < maxDistance) {
-
-            const power = (maxDistance - distance) / maxDistance;
-
-            gsap.to(pill, {
-                x: dx * power * 0.45,
-                y: dy * power * 0.45,
-                duration: 0.18,
-                ease: "power3.out"
-            });
-
-        } else {
-
-            gsap.to(pill, {
-                x: 0,
-                y: 0,
-                duration: 0.45,
+            gsap.from(heroContainer, {
+                y: 80,
+                opacity: 0,
+                duration: 1.5,
                 ease: "power3.out"
             });
 
         }
 
-    });
 
-});
+        // ----------------------------------------------
+        // About animation
+        // ----------------------------------------------
 
-heroGraphic.addEventListener("mouseleave", () => {
+        const aboutContainer = document.querySelector(".about-container");
+        const aboutSection = document.querySelector(".about-section");
 
-    gsap.to(".floating-pill", {
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: "elastic.out(1,0.5)"
-    });
+        if (aboutContainer && aboutSection && typeof ScrollTrigger !== "undefined") {
 
-});
-// for typing effect
-const typingText = document.getElementById("typing-text");
-
-const words = [
-    "Hello Human: Dream, Code, Fail, Learn, Repeat."
-];
-
-let i = 0;
-let j = 0;
-let deleting = false;
-
-function type() {
-
-    if (!deleting) {
-        typingText.textContent = words[i].slice(0, ++j);
-
-        if (j === words[i].length) {
-            deleting = true;
-            setTimeout(type, 1000);
-            return;
-        }
-
-    } else {
-
-        typingText.textContent = words[i].slice(0, --j);
-
-        if (j === 0) {
-            deleting = false;
-        }
-
-    }
-
-    setTimeout(type, deleting ? 30 : 120);
-}
-
-window.addEventListener("load", type);
-// for scroll reveal
-gsap.from(".about-container", {
-    y: 80,
-    opacity: 0,
-    duration: 2,
-    ease: "power3.out",
-
-    scrollTrigger: {
-        trigger: ".about-section",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    }
-});
-
-gsap.from(".hero-container", {
-    y: 80,
-    opacity: 0,
-    duration: 1.5,
-    ease: "power3.out"
-});
-
-gsap.from(".contact-container", {
-    y: 80,
-    opacity: 0,
-    duration: 2,
-    ease: "power3.out",
-
-    scrollTrigger: {
-        trigger: ".contact-section",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    }
-});
-gsap.from(".footer-container", {
-    y: 80,
-    opacity: 0,
-    duration: 2,
-    ease: "power3.out",
-
-    scrollTrigger: {
-        trigger: ".footer",
-        start: "top 80%",
-        toggleActions: "play none none none"
-    }
-});
-// for counter animation
-const counters = document.querySelectorAll(".counter");
-
-ScrollTrigger.create({
-    trigger: ".about-section",
-    start: "top 75%",
-
-    onEnter: () => {
-
-        counters.forEach(counter => {
-
-            const target = +counter.dataset.target;
-
-            gsap.to(counter, {
-
-                innerText: target,
-
+            gsap.from(aboutContainer, {
+                y: 80,
+                opacity: 0,
                 duration: 2,
+                ease: "power3.out",
 
-                snap: { innerText: 1 },
+                scrollTrigger: {
+                    trigger: aboutSection,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
 
-                ease: "power2.out",
+        }
 
-                onUpdate: function () {
 
-                    counter.innerText = Math.ceil(counter.innerText);
+        // ----------------------------------------------
+        // Contact animation
+        // ----------------------------------------------
 
-                },
+        const contactContainer = document.querySelector(".contact-container");
+        const contactSection = document.querySelector(".contact-section");
 
-                onComplete: function () {
+        if (contactContainer && contactSection && typeof ScrollTrigger !== "undefined") {
 
-                    counter.innerText += "+";
+            gsap.from(contactContainer, {
+                y: 80,
+                opacity: 0,
+                duration: 2,
+                ease: "power3.out",
 
+                scrollTrigger: {
+                    trigger: contactSection,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+        }
+
+
+        // ----------------------------------------------
+        // Footer animation
+        // ----------------------------------------------
+
+        const footerContainer = document.querySelector(".footer-container");
+        const footer = document.querySelector(".footer");
+
+        if (footerContainer && footer && typeof ScrollTrigger !== "undefined") {
+
+            gsap.from(footerContainer, {
+                y: 80,
+                opacity: 0,
+                duration: 2,
+                ease: "power3.out",
+
+                scrollTrigger: {
+                    trigger: footer,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+        }
+
+    }
+
+
+    // ==================================================
+    // SWIPER
+    // Only initialize when a Swiper exists on the page
+    // ==================================================
+
+    const photoSwiper = document.querySelector(".photoSwiper");
+
+    if (photoSwiper && typeof Swiper !== "undefined") {
+
+        new Swiper(photoSwiper, {
+
+            touchEventsTarget: "container",
+
+            effect: "coverflow",
+
+            grabCursor: true,
+
+            centeredSlides: true,
+
+            loop: true,
+
+            slidesPerView: 3,
+
+            spaceBetween: -60,
+
+            speed: 2500,
+
+            autoplay: {
+                delay: 600,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+
+            coverflowEffect: {
+                rotate: 0,
+                stretch: -60,
+                depth: 400,
+                modifier: 2,
+                scale: 0.75,
+                slideShadows: false,
+            },
+
+            navigation: {
+                nextEl: photoSwiper.querySelector(".swiper-button-next"),
+                prevEl: photoSwiper.querySelector(".swiper-button-prev"),
+            }
+
+        });
+
+    }
+
+
+    // ==================================================
+    // MOBILE NAVIGATION
+    // ==================================================
+
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    if (hamburger && navMenu) {
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+
+    }
+
+
+    // ==================================================
+    // NAVIGATION LINKS
+    // ==================================================
+
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    if (navLinks.length > 0 && navMenu) {
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+            });
+
+        });
+
+    }
+
+
+    // ==================================================
+    // ACTIVE NAVIGATION ON SCROLL
+    // Only meaningful on homepage
+    // ==================================================
+
+    const sections = document.querySelectorAll("section[id], header[id]");
+
+    if (sections.length > 0 && navLinks.length > 0) {
+
+        window.addEventListener("scroll", () => {
+
+            let current = "";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY < sectionTop + sectionHeight
+                ) {
+
+                    current = section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+                const href = link.getAttribute("href");
+
+                if (href === "#" + current) {
+                    link.classList.add("active");
                 }
 
             });
@@ -280,154 +249,453 @@ ScrollTrigger.create({
 
     }
 
-});
-// for projects animation
-// gsap.from(".project-card", {
-//     y: 80,
-//     opacity: 0,
-//     duration: 1,
-//     stagger: 0.2,
-//     ease: "power3.out",
 
-//     scrollTrigger: {
-//         trigger: ".projects-section",
-//         start: "top 75%",
-//         toggleActions: "play none none none"
-//     }
-// });
-// gsap.from(".projects-card",{
-//     y:80,
-//     opacity:0,
-//     stagger:.2,
-//     duration:1,
+    // ==================================================
+    // FLOATING PILLS
+    // Only homepage
+    // ==================================================
 
-//     scrollTrigger:{
-//         trigger:".projects-section",
-//         start:"top 80%"
-//     }
-// });
+    const heroGraphic = document.querySelector(".hero-graphic-side");
+    const pills = document.querySelectorAll(".floating-pill");
 
-// for back to top button
-const backToTop = document.getElementById("backToTop");
+    const maxDistance = 450;
 
-window.addEventListener("scroll", () => {
+    if (
+        heroGraphic &&
+        pills.length > 0 &&
+        typeof gsap !== "undefined"
+    ) {
 
-    if(window.scrollY > 400){
+        heroGraphic.addEventListener("mousemove", (e) => {
 
-        backToTop.classList.add("show");
+            pills.forEach((pill) => {
 
-    }else{
+                const rect = pill.getBoundingClientRect();
 
-        backToTop.classList.remove("show");
+                const dx =
+                    e.clientX - (rect.left + rect.width / 2);
+
+                const dy =
+                    e.clientY - (rect.top + rect.height / 2);
+
+                const distance = Math.hypot(dx, dy);
+
+                if (distance < maxDistance) {
+
+                    const power =
+                        (maxDistance - distance) / maxDistance;
+
+                    gsap.to(pill, {
+
+                        x: dx * power * 0.45,
+
+                        y: dy * power * 0.45,
+
+                        duration: 0.18,
+
+                        ease: "power3.out"
+
+                    });
+
+                } else {
+
+                    gsap.to(pill, {
+
+                        x: 0,
+
+                        y: 0,
+
+                        duration: 0.45,
+
+                        ease: "power3.out"
+
+                    });
+
+                }
+
+            });
+
+        });
+
+
+        heroGraphic.addEventListener("mouseleave", () => {
+
+            gsap.to(pills, {
+
+                x: 0,
+
+                y: 0,
+
+                duration: 0.6,
+
+                ease: "elastic.out(1,0.5)"
+
+            });
+
+        });
 
     }
 
-});
 
-backToTop.addEventListener("click", () => {
+    // ==================================================
+    // HOME TYPING EFFECT
+    // ==================================================
 
-    window.scrollTo({
+    const typingText = document.getElementById("typing-text");
 
-        top:0,
-        behavior:"smooth"
+    if (typingText) {
 
-    });
+        const words = [
+            "Hello Human:Dream, Code, Fail, Learn, Repeat."
+        ];
 
-});
+        let i = 0;
+        let j = 0;
+        let deleting = false;
 
-// ================= EmailJS Contact Form =================
 
-emailjs.init("gLwXdXEKzRBT3cp7z");
+        function type() {
 
-const contactForm = document.getElementById("contact-form");
+            if (!deleting) {
 
-contactForm.addEventListener("submit", function (e) {
+                typingText.textContent =
+                    words[i].slice(0, ++j);
 
-    e.preventDefault();
 
-    const submitBtn = contactForm.querySelector("button");
+                if (j === words[i].length) {
 
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Sending...";
+                    deleting = true;
 
-    emailjs.sendForm(
-        "service_mjpbdjb",
-        "template_rolr5wf",
-        this
-    )
-    .then(() => {
+                    setTimeout(type, 1000);
 
-        alert("✅ Message sent successfully!");
+                    return;
 
-        contactForm.reset();
+                }
 
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Message";
+            } else {
 
-    })
-    .catch((error) => {
+                typingText.textContent =
+                    words[i].slice(0, --j);
 
-        console.error(error);
 
-        console.log(error);
-        alert(error.text || JSON.stringify(error));
+                if (j === 0) {
 
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send Message";
+                    deleting = false;
 
-    });
+                }
 
-});
-
-// ================= WhatsApp Typing =================
-
-const whatsappText = document.getElementById("whatsapp-typing");
-
-if (whatsappText) {
-
-    const messages = [
-        "Have an Idea?",
-        "Let's discuss!"
-    ];
-
-    let messageIndex = 0;
-    let letterIndex = 0;
-    let deleting = false;
-
-    function whatsappTyping() {
-
-        const current = messages[messageIndex];
-
-        if (!deleting) {
-
-            whatsappText.textContent = current.substring(0, letterIndex);
-
-            letterIndex++;
-
-            if (letterIndex > current.length) {
-
-                deleting = true;
-                setTimeout(whatsappTyping, 1500);
-                return;
             }
 
-        } else {
 
-            whatsappText.textContent = current.substring(0, letterIndex);
+            setTimeout(
+                type,
+                deleting ? 20 : 100
+            );
 
-            letterIndex--;
-
-            if (letterIndex < 0) {
-
-                deleting = false;
-                messageIndex = (messageIndex + 1) % messages.length;
-            }
         }
 
-        setTimeout(whatsappTyping, deleting ? 40 : 100);
+
+        type();
+
     }
 
-    whatsappTyping();
-}
+
+    // ==================================================
+    // COUNTER ANIMATION
+    // Only homepage
+    // ==================================================
+
+    const counters = document.querySelectorAll(".counter");
+    const counterSection = document.querySelector(".about-section");
+
+    if (
+        counters.length > 0 &&
+        counterSection &&
+        typeof gsap !== "undefined" &&
+        typeof ScrollTrigger !== "undefined"
+    ) {
+
+        ScrollTrigger.create({
+
+            trigger: counterSection,
+
+            start: "top 75%",
+
+            once: true,
+
+            onEnter: () => {
+
+                counters.forEach(counter => {
+
+                    const target =
+                        Number(counter.dataset.target);
 
 
+                    gsap.to(counter, {
+
+                        innerText: target,
+
+                        duration: 2,
+
+                        snap: {
+                            innerText: 1
+                        },
+
+                        ease: "power2.out",
+
+                        onUpdate: function () {
+
+                            counter.innerText =
+                                Math.ceil(
+                                    Number(counter.innerText)
+                                );
+
+                        },
+
+                        onComplete: function () {
+
+                            counter.innerText += "+";
+
+                        }
+
+                    });
+
+                });
+
+            }
+
+        });
+
+    }
+
+
+    // ==================================================
+    // BACK TO TOP
+    // ==================================================
+
+    const backToTop =
+        document.getElementById("backToTop");
+
+    if (backToTop) {
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 400) {
+
+                backToTop.classList.add("show");
+
+            } else {
+
+                backToTop.classList.remove("show");
+
+            }
+
+        });
+
+
+        backToTop.addEventListener("click", () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    }
+
+
+    // ==================================================
+    // EMAILJS
+    // Only initialize when contact form exists
+    // ==================================================
+
+    const contactForm =
+        document.getElementById("contact-form");
+
+
+    if (
+        contactForm &&
+        typeof emailjs !== "undefined"
+    ) {
+
+        emailjs.init("gLwXdXEKzRBT3cp7z");
+
+
+        contactForm.addEventListener(
+            "submit",
+            function (e) {
+
+                e.preventDefault();
+
+
+                const submitBtn =
+                    contactForm.querySelector("button");
+
+
+                if (!submitBtn) return;
+
+
+                submitBtn.disabled = true;
+
+                submitBtn.innerText = "Sending...";
+
+
+                emailjs.sendForm(
+
+                    "service_mjpbdjb",
+
+                    "template_rolr5wf",
+
+                    this
+
+                )
+
+                .then(() => {
+
+                    alert(
+                        "✅ Message sent successfully!"
+                    );
+
+
+                    contactForm.reset();
+
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.innerText =
+                        "Send Message";
+
+                })
+
+                .catch((error) => {
+
+                    console.error(
+                        "EmailJS Error:",
+                        error
+                    );
+
+
+                    alert(
+                        error.text ||
+                        "Failed to send message. Please try again."
+                    );
+
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.innerText =
+                        "Send Message";
+
+                });
+
+            }
+        );
+
+    }
+
+
+    // ==================================================
+    // WHATSAPP TYPING
+    // ==================================================
+
+    const whatsappText =
+        document.getElementById("whatsapp-typing");
+
+
+    if (whatsappText) {
+
+        const messages = [
+
+            "Have an Idea?",
+
+            "Let's discuss!"
+
+        ];
+
+
+        let messageIndex = 0;
+
+        let letterIndex = 0;
+
+        let deleting = false;
+
+
+        function whatsappTyping() {
+
+            const current =
+                messages[messageIndex];
+
+
+            if (!deleting) {
+
+                whatsappText.textContent =
+                    current.substring(
+                        0,
+                        letterIndex
+                    );
+
+
+                letterIndex++;
+
+
+                if (
+                    letterIndex >
+                    current.length
+                ) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        whatsappTyping,
+                        1500
+                    );
+
+                    return;
+
+                }
+
+            } else {
+
+                whatsappText.textContent =
+                    current.substring(
+                        0,
+                        letterIndex
+                    );
+
+
+                letterIndex--;
+
+
+                if (letterIndex < 0) {
+
+                    deleting = false;
+
+                    messageIndex =
+                        (messageIndex + 1) %
+                        messages.length;
+
+                }
+
+            }
+
+
+            setTimeout(
+
+                whatsappTyping,
+
+                deleting ? 40 : 100
+
+            );
+
+        }
+
+
+        whatsappTyping();
+
+    }
+
+});
