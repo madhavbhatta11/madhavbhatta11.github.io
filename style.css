@@ -808,15 +808,66 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 }
 .about-text h2 span { color: var(--brand-orange); }
 
-.counter-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    margin-top:30px;
+/* for counting section in about section */
+.counter-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 30px;
 }
+
+.counter-item {
+    text-align: center;
+
+    padding: 8px 6px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border-color: var(--brand-orange);
+}
+
 .counter-item h3 {
-    font-size: 32px;
+    font-size: 22px;
     color: var(--brand-orange);
+    margin-bottom: 4px;
+}
+
+.counter-item p {
+    font-size: 13px;
+    color: #d8d8d8;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .counter-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .counter-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .counter-item h3 {
+        font-size: 24px;
+    }
 }
 
 /* ================= LEGACY CHILD PAGE ALIGNMENT ================= */
@@ -1719,13 +1770,6 @@ body.dark-mode .footer{
 
 }
 
-.counter-grid{
-
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-
-}
 
     .whatsapp-float{
         animation: whatsappPulse 2.5s infinite;
