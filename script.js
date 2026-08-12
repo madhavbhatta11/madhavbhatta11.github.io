@@ -732,3 +732,57 @@ if (studyTypingText) {
     }
 
 });
+// ================= PROJECT SEE MORE =================
+
+document.querySelectorAll(".see-more").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const description = button.closest(".project-description");
+
+        description.classList.toggle("expanded");
+
+        if (description.classList.contains("expanded")) {
+            button.textContent = " Show less";
+        } else {
+            button.textContent = "... See more";
+        }
+
+    });
+
+});
+
+// ================= VIEW MORE PROJECTS =================
+// ================= VIEW MORE PROJECTS =================
+
+const projectsToggle = document.getElementById("projectsToggle");
+const projectGrid = document.querySelector(".project-grid");
+
+if (projectsToggle && projectGrid) {
+
+    projectsToggle.addEventListener("click", () => {
+
+        const expanded =
+            projectGrid.classList.toggle("show-all");
+
+        const icon =
+            projectsToggle.querySelector(".toggle-icon");
+
+        const text =
+            projectsToggle.querySelector(".toggle-text");
+
+        if (expanded) {
+
+            icon.textContent = "−";
+            text.textContent = "Show Less Projects";
+
+        } else {
+
+            icon.textContent = "+";
+            text.textContent = "View More Projects";
+
+        }
+
+    });
+
+}
