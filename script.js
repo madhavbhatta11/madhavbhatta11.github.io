@@ -400,6 +400,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+// ================= STUDY MATERIALS TYPING EFFECT =================
+
+const studyTypingText = document.getElementById("study-typing-text");
+
+if (studyTypingText) {
+
+    const studyMessage =
+        "Independent educational resource for  students; materials are provided for non-commercial educational purposes. We do not claim ownership of third-party content; all rights remain with their respective owners. Rights holders may contact us regarding content for review or removal.";
+
+    let studyIndex = 0;
+
+    function studyTyping() {
+
+        if (studyIndex < studyMessage.length) {
+
+            studyTypingText.textContent =
+                studyMessage.substring(0, studyIndex + 1);
+
+            studyIndex++;
+
+            setTimeout(studyTyping, 5);
+
+        } else {
+
+            // Stop here — text stays visible permanently
+            studyTypingText.textContent = studyMessage;
+        }
+    }
+
+    studyTyping();
+}
+
+
     // ==================================================
     // COUNTER ANIMATION
     // Only homepage

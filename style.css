@@ -906,15 +906,71 @@ body.dark-mode .project-card .card-link {
     max-width: 750px;
     min-height: 65px;
     margin: auto;
-
+    font-family: "Space Grotesk", sans-serif;
     font-size: 18px;
     line-height: 1.8;
-
     text-align: justify;
 
     color: var(--muted-grey);
     background: transparent;
+
+    animation: terminalBlink 3s ease-in-out infinite;
 }
+
+/* ================= STUDY DESCRIPTION BOX ================= */
+
+.study-description-box {
+    max-width: 850px;
+    margin: 30px auto 0;
+    padding: 25px 30px;
+
+    /* Same card appearance as semester boxes */
+    background: rgb(84, 75, 75);
+    color: var(--text-color);
+
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.study-description-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    background: rgb(102, 58, 58);
+}
+
+.study-description {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.8;
+    text-align: justify;
+
+    color: var(--text-color);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    background: rgb(84, 75, 75);
+    
+}
+
+.study-description .terminal-prefix {
+    color: #06f706;
+    font-weight: 700;
+}
+
+.study-description #study-typing-text {
+    color: var(--text-color);
+}
+
 
 
 /* =========================================================
@@ -975,7 +1031,8 @@ body.dark-mode .project-card .card-link {
 .semester-box p {
     font-size: 15px;
     line-height: 1.6;
-    color: var(--muted-grey);
+    /* background: grey; */
+    color: var(--text-color);
 }
 
 
