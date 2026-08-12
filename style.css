@@ -2616,10 +2616,17 @@ body.dark-mode .dropdown-content li a:hover {
 ========================================================= */
 
 .projects-section {
+    width: 100%;
     max-width: 1100px;
+
     margin: 80px auto 60px;
     padding: 0 20px;
+
+    box-sizing: border-box;
+
+    overflow: visible;
 }
+
 
 .projects-section .section-header {
     text-align: center;
@@ -2639,9 +2646,14 @@ body.dark-mode .dropdown-content li a:hover {
 ========================================================= */
 
 .project-grid {
+    width: 100%;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+    box-sizing: border-box;
 }
 
 
@@ -2995,12 +3007,17 @@ body.dark-mode .projects-section .section-header h2 {
 ========================================================= */
 
 .projects-more {
+    width: 100%;
+    height: auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 100%;
-    margin: 35px auto 15px;
+    margin: 30px 0 0;
+    padding: 0;
+
+    box-sizing: border-box;
 }
 
 /* ================= MAIN BUTTON ================= */

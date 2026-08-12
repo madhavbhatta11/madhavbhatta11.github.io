@@ -752,35 +752,47 @@ document.querySelectorAll(".see-more").forEach(button => {
 
 });
 
-// ================= VIEW MORE PROJECTS =================
-// ================= VIEW MORE PROJECTS =================
+// ================= VIEW MORE / SHOW LESS PROJECTS =================
 
 const projectsToggle = document.getElementById("projectsToggle");
 const projectGrid = document.querySelector(".project-grid");
+const projectsSection = document.getElementById("projects");
 
-if (projectsToggle && projectGrid) {
+if (projectsToggle && projectGrid && projectsSection) {
 
-    projectsToggle.addEventListener("click", () => {
+    projectsToggle.addEventListener("click", function () {
 
-        const expanded =
-            projectGrid.classList.toggle("show-all");
+        const expanded = projectGrid.classList.toggle("show-all");
 
-        const icon =
-            projectsToggle.querySelector(".toggle-icon");
-
-        const text =
-            projectsToggle.querySelector(".toggle-text");
+        const icon = this.querySelector("span:first-child");
+        const text = this.querySelector(".toggle-text");
 
         if (expanded) {
 
+            // SHOW ALL
             icon.textContent = "−";
             text.textContent = "Show Less Projects";
 
         } else {
 
+            // SHOW ONLY FIRST 3
             icon.textContent = "+";
             text.textContent = "View More Projects";
 
+            // Return smoothly to the Projects section
+            setTimeout(() => {
+
+                const sectionPosition =
+                    projectsSection.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    80;
+
+                window.scrollTo({
+                    top: sectionPosition,
+                    behavior: "smooth"
+                });
+
+            }, 100);
         }
 
     });
