@@ -1968,7 +1968,7 @@ body.dark-mode .contact-form textarea{
 }
 
 .contact-form button {
-    width: fit-content;
+    width: 100%;
     padding: 14px 35px;
     border: none;
     border-radius: 10px;
