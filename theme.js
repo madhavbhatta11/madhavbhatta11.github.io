@@ -1,53 +1,53 @@
-
-
+// ================= THEME PERSISTENCE =================
 
 const body = document.body;
 
 const toggle = document.getElementById("theme-toggle");
-
 const moon = document.getElementById("moon-icon");
-
 const sun = document.getElementById("sun-icon");
 
+// ================= LOAD SAVED THEME =================
 
-// Load saved theme
 const savedTheme = localStorage.getItem("theme");
 
-if(savedTheme==="dark"){
-
+if (savedTheme === "dark") {
     body.classList.add("dark-mode");
 
-    moon.classList.add("hidden");
+    if (moon) moon.classList.add("hidden");
+    if (sun) sun.classList.remove("hidden");
+} else {
+    body.classList.remove("dark-mode");
 
-    sun.classList.remove("hidden");
-
+    if (moon) moon.classList.remove("hidden");
+    if (sun) sun.classList.add("hidden");
 }
 
 
-// Toggle
-toggle.addEventListener("click",()=>{
+// ================= THEME TOGGLE =================
 
-    body.classList.toggle("dark-mode");
+if (toggle) {
 
-    const dark = body.classList.contains("dark-mode");
+    toggle.addEventListener("click", () => {
 
-    if(dark){
+        body.classList.toggle("dark-mode");
 
-        moon.classList.add("hidden");
+        const dark = body.classList.contains("dark-mode");
 
-        sun.classList.remove("hidden");
+        if (dark) {
 
-        localStorage.setItem("theme","dark");
+            if (moon) moon.classList.add("hidden");
+            if (sun) sun.classList.remove("hidden");
 
-    }else{
+            localStorage.setItem("theme", "dark");
 
-        sun.classList.add("hidden");
+        } else {
 
-        moon.classList.remove("hidden");
+            if (sun) sun.classList.add("hidden");
+            if (moon) moon.classList.remove("hidden");
 
-        localStorage.setItem("theme","light");
+            localStorage.setItem("theme", "light");
+        }
 
-    }
+    });
 
-});
-
+}
