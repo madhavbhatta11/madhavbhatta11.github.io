@@ -243,13 +243,38 @@ html{
 
 /* ================= FIGMA HERO LAYOUT ================= */
 
-.hero-clean .hero-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 40px;
+/* ================= COMPACT HERO SECTION ================= */
+
+.hero-clean {
+    background-color: var(--card-color) !important;
+
+    min-height: calc(100vh - 80px);
+
+    padding: 40px clamp(20px, 4vw, 60px);
+
+    display: flex;
     align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+    z-index: 1;
+}
+
+.hero-container {
+    width: min(1200px, 100%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(320px, 0.95fr);
+
+    align-items: center;
+
+    gap: clamp(30px, 5vw, 70px);
 }
 
 .designer-badge {
@@ -358,7 +383,8 @@ body.dark-mode .hero-text-side h1{
 .hero-action-row {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
+    margin-top: 24px;
     flex-wrap: wrap;
 }
 /* ---------- Primary CTA ---------- */
@@ -455,14 +481,6 @@ body.dark-mode .hero-text-side h1{
     flex-direction:column;
 }
 
-.hero-graphic-side {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transform: translateX(30px);
-}
 
 
 
@@ -484,9 +502,19 @@ body.dark-mode .hero-text-side h1{
 .pill-green {
     background-color: var(--brand-green);
     color: var(--pure-white);
+
     bottom: 20px;
     left: -35px;
+
     animation: swimGreen 5s ease-in-out infinite;
+}
+
+.pill-orange {
+    background-color: var(--brand-orange);
+    color: var(--brand-green);
+
+    animation: swimOrange 5s ease-in-out infinite;
+    animation-delay: 1.2s;
 }
 
 @keyframes swimGreen {
@@ -511,10 +539,7 @@ body.dark-mode .hero-text-side h1{
         transform: translate(-15px, 15px) rotate(-5deg);
     }
 }
-.pill-orange {
-    animation: swimOrange 5s ease-in-out infinite;
-    animation-delay: 1.2s;
-}
+
 
 @keyframes swimOrange {
 
@@ -1703,24 +1728,91 @@ body.dark-mode .dropdown-content li a:hover {
 
 /* ================= RESTORED PHOTO FRAME GRAPHIC ================= */
 .circle-backdrop {
-    width: 300px;
-    height: 360px;
+    width: min(36vw, 400px);
+    aspect-ratio: 4 / 5;
+
     background: var(--brand-orange);
-    border-radius: 40px 140px 40px 40px; /* Restores the sharp corner look */
+
+    border-radius: 28px;
+
     position: relative;
+
+    flex-shrink: 0;
 }
 
 .profile-img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
-    border-radius: 40px 140px 40px 40px;
+    border-radius: 24px;
+
     position: absolute;
-    bottom: 15px; /* Creates the overlapping frame layer effect */
-    right: 15px;
-    left: auto;
-    transform: none;
+    bottom: 5px;
+    right: 5px;
+
     border: 4px solid var(--brand-green);
+}
+
+.hero-graphic-side {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    transform: translateX(15px);
+
+    isolation: isolate;
+}
+
+.profile-img:hover {
+    transform: translate(-4px, -4px);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.16);
+}
+
+@media (max-width: 768px) {
+
+    .hero-clean {
+        min-height: auto;
+
+        padding:
+            35px
+            20px
+            60px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        text-align: center;
+    }
+
+    .hero-text-side {
+        max-width: 100%;
+    }
+
+    .hero-action-row {
+        justify-content: center;
+    }
+
+    .hero-graphic-side {
+        transform: none;
+
+        margin-top: 5px;
+    }
+
+    .circle-backdrop {
+        width: min(78vw, 350px);
+
+        aspect-ratio: 4 / 5;
+    }
 }
 
 .hero-clean {
@@ -2242,6 +2334,10 @@ body.dark-mode .contact-form textarea{
         order:2;
         text-align:center;
         align-items:center;
+        display: flex;
+        flex-direction: column;
+
+        max-width: 650px
     }
 
     .nav-container{
@@ -3495,5 +3591,199 @@ body.dark-mode .projects-toggle:hover {
         height: 20px;
 
         font-size: 18px;
+    }
+}
+
+/* ================= DEVELOPER HERO VISUAL ================= */
+
+.developer-visual {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background: #151515;
+
+    border-radius: 24px;
+
+    border: 4px solid var(--brand-green);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Terminal top bar */
+
+.terminal-header {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 18px;
+
+    background: #202020;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.terminal-header span {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #777;
+}
+
+/* Code area */
+
+.code-content {
+    padding: 42px 30px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: clamp(11px, 1.1vw, 15px);
+
+    line-height: 2;
+
+    color: #e5e5e5;
+}
+
+/* Code colors */
+
+.code-key {
+    color: var(--brand-orange);
+    font-weight: 700;
+}
+
+.code-name {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.code-function {
+    color: #8fd19e;
+}
+
+.code-string {
+    color: #0aeb4a;
+}
+
+.code-indent {
+    padding-left: 22px;
+}
+
+.code-indent-2 {
+    padding-left: 44px;
+}
+
+/* Status */
+
+.terminal-status {
+    position: absolute;
+
+    left: 30px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #aaa;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: var(--brand-orange);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 10px var(--brand-orange);
+
+    animation: statusPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+
+/* ================= HOVER ================= */
+
+.developer-visual:hover {
+    transform: translate(-4px, -4px);
+
+    box-shadow:
+        0 28px 55px rgba(0, 0, 0, 0.20);
+}
+
+@media (max-width: 480px) {
+
+    .hero-clean {
+        padding:
+            25px
+            15px
+            45px;
+    }
+
+    .hero-container {
+        gap: 25px;
+    }
+
+    .circle-backdrop {
+        width: min(82vw, 320px);
+    }
+
+    .floating-pill {
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+
+    .pill-green {
+        left: -10px;
+    }
+
+    .pill-orange {
+        right: -10px;
+    }
+
+    .circular-seal {
+        width: 65px;
+        height: 65px;
+
+        right: -8px;
     }
 }
