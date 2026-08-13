@@ -3821,7 +3821,7 @@ body.dark-mode .projects-toggle:hover {
 @media (max-width: 768px) {
 
     .hero-clean {
-        padding: 20px 16px 30px;
+        padding: 10px 16px 10px;
         margin: 0;
     }
 
@@ -3864,7 +3864,7 @@ body.dark-mode .projects-toggle:hover {
 @media (max-width: 480px) {
 
     .hero-clean {
-        padding: 35px 12px 60px;
+        padding: 35px 12px 40px;
     }
 
     .hero-container {
@@ -3916,7 +3916,7 @@ body.dark-mode .projects-toggle:hover {
 
 .hero-clean {
     background-color: var(--card-color) !important;
-    padding: 10px 10px 20px;
+    padding: 30px 10px 30px;
     margin: 0;
     overflow: hidden;
     position: relative;
