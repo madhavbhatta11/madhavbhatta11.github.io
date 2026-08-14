@@ -4068,29 +4068,37 @@ body.dark-mode .projects-toggle:hover {
     gap: 25px;
 }
 
+/* =========================================================
+   EDUCATION CARDS — SAME VISUAL STYLE AS DEVELOPER VISUAL
+   ========================================================= */
+
 .education-card {
     position: relative;
 
-    padding: 30px;
-    background: var(--card-color);
+    border-radius: 20px;
 
-    border: 1px solid rgba(128, 128, 128, 0.18);
-    border-radius: 18px;
+    background: var(--dark-charcoal);
+    color: var(--pure-white);
 
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+    padding: 28px;
 
     overflow: hidden;
 
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.18);
+
+    border: none;
+
     transition:
         transform 0.3s ease,
-        border-color 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .education-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(50, 117, 63, 0.4);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transform: translate(-3px, -3px);
+
+    box-shadow:
+        0 28px 55px rgba(0, 0, 0, 0.22);
 }
 
 
@@ -4103,22 +4111,25 @@ body.dark-mode .projects-toggle:hover {
     align-items: flex-start;
     gap: 15px;
 
+
     margin-bottom: 35px;
 }
 
 .education-number {
     flex-shrink: 0;
 
+    width: 38px;
+    height: 38px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 38px;
-    height: 38px;
-
     border-radius: 50%;
 
-    background: var(--brand-green);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
     color: var(--pure-white);
 
     font-size: 0.75rem;
@@ -4130,7 +4141,7 @@ body.dark-mode .projects-toggle:hover {
 
     margin-bottom: 6px;
 
-    color: var(--brand-green);
+    color: rgba(255, 255, 255, 0.55);
 
     font-size: 0.68rem;
     font-weight: 700;
@@ -4140,7 +4151,7 @@ body.dark-mode .projects-toggle:hover {
 .education-card-header h3 {
     margin: 0;
 
-    color: var(--text-color);
+    color: var(--pure-white);
 
     font-size: 1.25rem;
     line-height: 1.3;
@@ -4148,9 +4159,10 @@ body.dark-mode .projects-toggle:hover {
 
 .institute-name {
     display: block;
+
     margin-top: 5px;
 
-    color: var(--brand-orange);
+    color: rgba(255, 255, 255, 0.65);
 
     font-size: 0.75rem;
     font-weight: 600;
@@ -4211,42 +4223,6 @@ body.dark-mode .projects-toggle:hover {
     background: rgba(128, 128, 128, 0.25);
 }
 
-.foundation-item .year-marker {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 50px;
-    height: 50px;
-
-    border: 1px solid var(--brand-green);
-    border-radius: 50%;
-
-    background: var(--card-color);
-
-    transition:
-        background 0.3s ease,
-        transform 0.3s ease;
-}
-
-.foundation-item .year-marker span {
-    color: var(--brand-green);
-
-    font-size: 0.68rem;
-    font-weight: 700;
-}
-
-.foundation-item:hover .year-marker {
-    background: var(--brand-green);
-    transform: scale(1.08);
-}
-
-.foundation-item:hover .year-marker span {
-    color: var(--pure-white);
-}
 
 
 /* =========================================================
@@ -4269,14 +4245,7 @@ body.dark-mode .projects-toggle:hover {
     letter-spacing: 1px;
 }
 
-.foundation-item h4 {
-    margin: 0 0 6px;
 
-    color: var(--text-color);
-
-    font-size: 1rem;
-    line-height: 1.4;
-}
 
 .foundation-item .institute-name {
     display: block;
@@ -4379,13 +4348,14 @@ body.dark-mode .projects-toggle:hover {
 }
 .academic-score {
     display: block;
-    margin-top: 6px;
 
-    color: var(--muted-grey);
-    font-size: 0.76rem;
+    margin: 5px 0 10px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 0.75rem;
     font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
 }
 
 
@@ -4393,40 +4363,49 @@ body.dark-mode .projects-toggle:hover {
    YEAR MARKER
    ========================================================= */
 
+/* =========================================================
+   YEAR MARKER — BOTH EDUCATION TIMELINES
+   ========================================================= */
+
 .year-marker {
     position: relative;
     z-index: 2;
+
+    width: 50px;
+    height: 50px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 50px;
-    height: 50px;
-
-    border: 1px solid var(--brand-green);
     border-radius: 50%;
 
-    background: var(--card-color);
+    background: var(--dark-charcoal);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 
     transition:
         background 0.3s ease,
+        border-color 0.3s ease,
         transform 0.3s ease;
 }
 
 .year-marker span {
-    color: var(--brand-green);
+    color: rgba(255, 255, 255, 0.75);
 
     font-size: 0.68rem;
     font-weight: 700;
 }
 
-.engineering-year:hover .year-marker {
+/* Both left and right */
+.engineering-year:hover .year-marker,
+.foundation-item:hover .year-marker {
     background: var(--brand-green);
+    border-color: var(--brand-green);
     transform: scale(1.08);
 }
 
-.engineering-year:hover .year-marker span {
+.engineering-year:hover .year-marker span,
+.foundation-item:hover .year-marker span {
     color: var(--pure-white);
 }
 
@@ -4439,12 +4418,14 @@ body.dark-mode .projects-toggle:hover {
     padding-top: 4px;
 }
 
-.year-content h4 {
+.year-content h4,
+.foundation-item h4 {
     margin: 0 0 10px;
 
-    color: var(--text-color);
+    color: var(--pure-white);
 
     font-size: 1rem;
+    line-height: 1.4;
 }
 
 .topic-list {
@@ -4452,31 +4433,37 @@ body.dark-mode .projects-toggle:hover {
     flex-wrap: wrap;
     gap: 7px;
 }
+
 .topic {
     display: inline-flex;
     align-items: center;
 
-    padding: 6px 10px;
+    padding: 7px 11px;
 
-    border: 1px solid rgba(128, 128, 128, 0.18);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
 
-    background: var(--bg-color);
-    color: var(--muted-grey);
+    border-radius: 8px;
+
+    color: rgba(255, 255, 255, 0.72);
 
     font-size: 0.72rem;
+    line-height: 1.2;
+
+    white-space: nowrap;
 
     transition:
         background 0.25s ease,
-        color 0.25s ease,
         border-color 0.25s ease,
+        color 0.25s ease,
         transform 0.25s ease;
 }
 
 .topic:hover {
-    background: var(--brand-green);
-    border-color: var(--brand-green);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.25);
     color: var(--pure-white);
+
     transform: translateY(-2px);
 }
 
@@ -4492,12 +4479,14 @@ body.dark-mode .projects-toggle:hover {
     .education-layout {
         width: 100%;
         padding: 0 15px;
+        
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .education-card {
         width: 100%;
+        
         box-sizing: border-box;
         padding: 22px;
     }
