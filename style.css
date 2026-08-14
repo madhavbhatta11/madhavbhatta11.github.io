@@ -10,6 +10,7 @@
     --pure-white:#ffffff;
 
     --dark-charcoal:#1a1a1a;
+    --accent-text: #32753f;
 
     /* Brand Colors */
     --brand-green: #32753f;
@@ -898,8 +899,8 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 /* ================= ABOUT SECTION ================= */
 .about-section {
     width: 100%;
-    background-color: var(--brand-green);
-    color: var(--pure-white);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 60px 0;
     box-sizing: border-box;
 }
@@ -4015,6 +4016,7 @@ body.dark-mode .projects-toggle:hover {
 
 .education-heading {
     width: min(800px, 92%);
+    color: var(--accent-text);
     margin: 0 auto 50px;
     text-align: center;
 }
@@ -4022,7 +4024,7 @@ body.dark-mode .projects-toggle:hover {
 .education-heading > span {
     display: block;
     margin-bottom: 10px;
-    color: var(--brand-green);
+    color: var(--accent-text);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -4036,7 +4038,7 @@ body.dark-mode .projects-toggle:hover {
 }
 
 .education-heading h2 strong {
-    color: var(--brand-orange);
+    color: var(--brand-green);
 }
 
 .education-heading p {
@@ -4046,7 +4048,6 @@ body.dark-mode .projects-toggle:hover {
     font-size: 0.95rem;
     line-height: 1.7;
 }
-
 
 /* =========================================================
    TWO EDUCATION CARDS
@@ -4304,6 +4305,16 @@ body.dark-mode .projects-toggle:hover {
 
     font-size: 0.82rem;
     line-height: 1.65;
+}
+.foundation-level {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--accent-text);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 
