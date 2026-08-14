@@ -1,29 +1,32 @@
 /* ================= GLOBAL RESETS & VARIABLES ================= */
 
 :root {
-
     /* Theme Colors */
-    --bg-color: #f9fbf9;
-    --text-color: #1a1a1a;
+    --bg-color: #eef1f4;
+    --text-color: #1e293b;
     --card-color: #ffffff;
 
-    --pure-white:#ffffff;
+    --pure-white: #ffffff;
+    --dark-charcoal: #0f172a;
 
-    --dark-charcoal:#1a1a1a;
+    /* Main Accent */
     --accent-text: #32753f;
 
     /* Brand Colors */
     --brand-green: #32753f;
-    --brand-orange: #ffa600d4;
+    --brand-orange: #64748b;
 
-    --nav-bg: #32753f;
+    /* Navigation */
+    --nav-bg: #0f172a;
 
     /* Other */
-    --muted-grey: #666666;
-    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --muted-grey: #64748b;
+    --border-color: #e2e8f0;
 
-    --theme-btn-hover: rgba(0,0,0,.08);
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --theme-btn-hover: rgba(15, 23, 42, 0.08);
 }
+
 
 * {
     margin: 0;
