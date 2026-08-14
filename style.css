@@ -904,7 +904,7 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
     width: 100%;
     background-color: var(--bg-color);
     color: var(--text-color);
-    padding: 60px 0;
+    padding: 60px 20px 20px;
     box-sizing: border-box;
 }
 
@@ -2908,7 +2908,7 @@ body.dark-mode .dropdown-content li a:hover {
     width: 100%;
     max-width: 1100px;
 
-    margin: 80px auto 60px;
+    margin: 40px auto 40px;
     padding: 0 20px;
 
     box-sizing: border-box;
@@ -4012,7 +4012,7 @@ body.dark-mode .projects-toggle:hover {
 .education-section {
     width: 100%;
     max-width: none;
-    margin-top: 90px;
+    margin-top: 40px;
     padding: 20px 0 30px;
     box-sizing: border-box;
 }
@@ -4060,7 +4060,7 @@ body.dark-mode .projects-toggle:hover {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 10px;
     box-sizing: border-box;
 
     display: grid;
