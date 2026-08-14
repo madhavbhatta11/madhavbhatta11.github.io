@@ -805,9 +805,13 @@ if (projectsToggle && projectGrid && projectsSection) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const educationYears = document.querySelectorAll(".engineering-year");
+    const educationYears =
+        document.querySelectorAll(".engineering-year");
 
-    if (!educationYears.length) return;
+    const foundationItems =
+        document.querySelectorAll(".foundation-item");
+
+    if (!educationYears.length && !foundationItems.length) return;
 
     const educationObserver = new IntersectionObserver(
         (entries, observer) => {
@@ -815,6 +819,23 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach((entry) => {
 
                 if (entry.isIntersecting) {
+
+                    /* =========================
+                       LEFT — ACADEMIC FOUNDATION
+                       ========================= */
+
+                    foundationItems.forEach((item, index) => {
+
+                        setTimeout(() => {
+                            item.classList.add("show");
+                        }, index * 150);
+
+                    });
+
+
+                    /* =========================
+                       RIGHT — COMPUTER ENGINEERING
+                       ========================= */
 
                     educationYears.forEach((year, index) => {
 
@@ -835,11 +856,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    const engineeringTimeline =
-        document.querySelector(".engineering-timeline");
 
-    if (engineeringTimeline) {
-        educationObserver.observe(engineeringTimeline);
+    /* Observe the complete education section */
+
+    const educationSection =
+        document.querySelector(".education-section");
+
+    if (educationSection) {
+        educationObserver.observe(educationSection);
     }
 
 });
