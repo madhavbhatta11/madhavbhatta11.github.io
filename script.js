@@ -798,3 +798,48 @@ if (projectsToggle && projectGrid && projectsSection) {
     });
 
 }
+
+/* =========================================================
+   EDUCATION TIMELINE ANIMATION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const educationYears = document.querySelectorAll(".engineering-year");
+
+    if (!educationYears.length) return;
+
+    const educationObserver = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    educationYears.forEach((year, index) => {
+
+                        setTimeout(() => {
+                            year.classList.add("show");
+                        }, index * 150);
+
+                    });
+
+                    observer.disconnect();
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    const engineeringTimeline =
+        document.querySelector(".engineering-timeline");
+
+    if (engineeringTimeline) {
+        educationObserver.observe(engineeringTimeline);
+    }
+
+});

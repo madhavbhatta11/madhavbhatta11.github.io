@@ -3996,3 +3996,567 @@ body.dark-mode .projects-toggle:hover {
         max-width: 330px;
     }
 }
+
+/* =========================================================
+   EDUCATION SECTION
+   ========================================================= */
+
+.education-section {
+    width: 100%;
+    margin-top: 90px;
+    padding: 20px 0 30px;
+}
+
+.education-heading {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.education-heading > span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--brand-green);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.education-heading h2 {
+    margin: 0 0 12px;
+    color: var(--text-color);
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+}
+
+.education-heading h2 strong {
+    color: var(--brand-orange);
+}
+
+.education-heading p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--muted-grey);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TWO EDUCATION CARDS
+   ========================================================= */
+
+.education-layout {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+.education-card {
+    position: relative;
+
+    padding: 30px;
+    background: var(--card-color);
+
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(50, 117, 63, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.education-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin-bottom: 35px;
+}
+
+.education-number {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: var(--brand-green);
+    color: var(--pure-white);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.education-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--brand-green);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.education-card-header h3 {
+    margin: 0;
+
+    color: var(--text-color);
+
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.institute-name {
+    display: block;
+    margin-top: 5px;
+
+    color: var(--brand-orange);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   ACADEMIC FOUNDATION
+   ========================================================= */
+
+.foundation-timeline {
+    position: relative;
+    padding-left: 8px;
+}
+
+.foundation-timeline::before {
+    content: "";
+
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 25px;
+
+    width: 1px;
+
+    background: linear-gradient(
+        to bottom,
+        var(--brand-orange),
+        rgba(128, 128, 128, 0.15)
+    );
+}
+
+.foundation-item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+    margin-bottom: 27px;
+}
+
+.foundation-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.foundation-line {
+    position: absolute;
+
+    left: 26px;
+    top: 50px;
+    bottom: 50px;
+
+    width: 1px;
+
+    background: rgba(128, 128, 128, 0.25);
+}
+
+.foundation-item .year-marker {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid var(--brand-green);
+    border-radius: 50%;
+
+    background: var(--card-color);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.foundation-item .year-marker span {
+    color: var(--brand-green);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.foundation-item:hover .year-marker {
+    background: var(--brand-green);
+    transform: scale(1.08);
+}
+
+.foundation-item:hover .year-marker span {
+    color: var(--pure-white);
+}
+
+
+/* =========================================================
+   FOUNDATION CONTENT
+   ========================================================= */
+
+.foundation-item .year-content {
+    padding-top: 4px;
+}
+
+.foundation-year {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--brand-orange);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.foundation-item h4 {
+    margin: 0 0 6px;
+
+    color: var(--text-color);
+
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.foundation-item .institute-name {
+    display: block;
+
+    margin-top: 0;
+    margin-bottom: 7px;
+
+    color: var(--brand-orange);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.foundation-item .academic-score {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--muted-grey);
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.foundation-item p {
+    margin: 0;
+
+    color: var(--muted-grey);
+
+    font-size: 0.82rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   COMPUTER ENGINEERING TIMELINE
+   ========================================================= */
+
+.engineering-timeline {
+    position: relative;
+    padding-left: 8px;
+}
+
+.engineering-timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 10px;
+    bottom: 10px;
+    left: 25px;
+
+    width: 1px;
+
+    background: linear-gradient(
+        to bottom,
+        var(--brand-orange),
+        rgba(128, 128, 128, 0.15)
+    );
+}
+
+.engineering-year {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 55px 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 27px;
+
+    opacity: 0;
+    transform: translateX(25px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+.engineering-year:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Animation state */
+
+.engineering-year.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+.academic-score {
+    display: block;
+    margin-top: 6px;
+
+    color: var(--muted-grey);
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+}
+
+
+/* =========================================================
+   YEAR MARKER
+   ========================================================= */
+
+.year-marker {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    border: 1px solid var(--brand-green);
+    border-radius: 50%;
+
+    background: var(--card-color);
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.year-marker span {
+    color: var(--brand-green);
+
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.engineering-year:hover .year-marker {
+    background: var(--brand-green);
+    transform: scale(1.08);
+}
+
+.engineering-year:hover .year-marker span {
+    color: var(--pure-white);
+}
+
+
+/* =========================================================
+   YEAR CONTENT
+   ========================================================= */
+
+.year-content {
+    padding-top: 4px;
+}
+
+.year-content h4 {
+    margin: 0 0 10px;
+
+    color: var(--text-color);
+
+    font-size: 1rem;
+}
+
+.topic-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.topic {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 6px 10px;
+
+    border: 1px solid rgba(128, 128, 128, 0.18);
+    border-radius: 20px;
+
+    background: var(--bg-color);
+    color: var(--muted-grey);
+
+    font-size: 0.72rem;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.topic:hover {
+    background: var(--brand-green);
+    border-color: var(--brand-green);
+    color: var(--pure-white);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .education-layout {
+        width: 92%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .education-card {
+        padding: 22px;
+        border-radius: 15px;
+    }
+
+    .education-card-header {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .education-card-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .education-label {
+        font-size: 0.62rem;
+        letter-spacing: 1.2px;
+    }
+
+    .foundation-item,
+    .engineering-year {
+        grid-template-columns: 50px 1fr;
+        gap: 15px;
+    }
+
+    .year-marker {
+        width: 46px;
+        height: 46px;
+    }
+
+    .year-marker span {
+        font-size: 0.62rem;
+    }
+
+    .topic-list {
+        gap: 6px;
+    }
+
+    .topic {
+        font-size: 0.72rem;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .education-card {
+        padding: 18px;
+    }
+
+    .education-card-header {
+        align-items: flex-start;
+    }
+
+    .education-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.65rem;
+    }
+
+    .foundation-item,
+    .engineering-year {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+    }
+
+    .year-marker {
+        width: 42px;
+        height: 42px;
+    }
+
+    .year-marker span {
+        font-size: 0.58rem;
+    }
+
+    .foundation-item h4,
+    .engineering-year h4 {
+        font-size: 0.9rem;
+    }
+
+    .foundation-item p {
+        font-size: 0.76rem;
+    }
+}
