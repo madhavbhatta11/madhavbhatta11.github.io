@@ -953,7 +953,7 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 
     padding: 8px 6px;
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(15, 23, 42, 0.12);
     border-radius: 14px;
 
     background: rgba(255, 255, 255, 0.06);
@@ -967,10 +967,20 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 .counter-item:hover {
     transform: translateY(-4px);
 
-    background: rgba(255, 255, 255, 0.10);
-
+    background: rgba(50, 117, 63, 0.06);
     border-color: var(--brand-orange);
 }
+
+body.dark-mode .counter-item {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .counter-item:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: var(--brand-orange);
+}
+
 
 .counter-item h3 {
     font-size: 22px;
@@ -980,8 +990,9 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 
 .counter-item p {
     font-size: 13px;
-    color: #d8d8d8;
+    color: var(--text-color);
     margin: 0;
+    opacity: 0.7;
 }
 
 @media (max-width: 768px) {
@@ -2950,33 +2961,7 @@ body.dark-mode .dropdown-content li a:hover {
    PROJECT CARD
 ========================================================= */
 
-.projects-section .project-card {
-    position: relative;
 
-    display: flex;
-    flex-direction: column;
-
-    min-height: 0;
-    height: auto;
-    padding: 22px;
-
-    background: var(--card-color);
-    color: var(--text-color);
-
-    border: 1px solid var(--border-color);
-    border-radius: 18px;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.06);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
-}
 
 
 /* Subtle top accent */
@@ -3001,14 +2986,7 @@ body.dark-mode .dropdown-content li a:hover {
    PROJECT CARD HOVER
 ========================================================= */
 
-.projects-section .project-card:hover {
-    transform: translateY(-7px);
 
-    box-shadow:
-        0 18px 35px rgba(0, 0, 0, 0.12);
-
-    border-color: var(--brand-green);
-}
 
 
 /* =========================================================
@@ -3206,30 +3184,67 @@ body.dark-mode .dropdown-content li a:hover {
 
 
 /* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.projects-section .project-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 240px;
+    height: auto;
+    padding: 22px;
+
+    background: #ffffff;
+    color: var(--text-color);
+
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.07);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
    LIGHT MODE
 ========================================================= */
 
 body:not(.dark-mode) .projects-section .project-card {
-    background: var(--card-color);
+    background: #ffffff;
+    color: var(--text-color);
 
-    border-color: rgba(0, 0, 0, 0.08);
+    border-color: rgba(15, 23, 42, 0.10);
 
     box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.06);
+        0 8px 25px rgba(0, 0, 0, 0.07);
 }
 
 body:not(.dark-mode) .projects-section .project-card:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--brand-green);
+
     box-shadow:
         0 18px 35px rgba(0, 0, 0, 0.12);
 }
-
-
 /* =========================================================
    DARK MODE
 ========================================================= */
 
 body.dark-mode .projects-section .project-card {
-    background: var(--card-color);
+    background: #111827;
+    color: #f8fafc;
 
     border-color: rgba(255, 255, 255, 0.10);
 
@@ -3237,24 +3252,49 @@ body.dark-mode .projects-section .project-card {
         0 8px 25px rgba(0, 0, 0, 0.30);
 }
 
+
+
 body.dark-mode .projects-section .project-card:hover {
+    transform: translateY(-5px);
+
     border-color: var(--brand-green);
 
     box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.45);
+        0 16px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   PROJECT ICON
+========================================================= */
+
+body:not(.dark-mode) .project-icon {
+    background: #f1f5f9;
 }
 
 body.dark-mode .project-icon {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* =========================================================
+   PROJECT TAGS
+========================================================= */
+
+body:not(.dark-mode) .project-tags span {
+    background: #f1f5f9;
+}
+
 body.dark-mode .project-tags span {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* =========================================================
+   PROJECT SECTION TITLE
+========================================================= */
+
 body.dark-mode .projects-section .section-header h2 {
     color: #ffffff;
 }
+
 
 
 /* =========================================================
@@ -4588,3 +4628,5 @@ body.dark-mode .projects-toggle:hover {
         font-size: 0.76rem;
     }
 }
+
+
