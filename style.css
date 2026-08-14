@@ -897,19 +897,22 @@ body.dark-mode .photoSwiper .swiper-button-prev:hover {
 
 /* ================= ABOUT SECTION ================= */
 .about-section {
+    width: 100%;
     background-color: var(--brand-green);
     color: var(--pure-white);
-    padding-bottom: 20px;
-    padding: 60px 20px;
-    /* margin-top: 1px; */
-    
+    padding: 60px 0;
+    box-sizing: border-box;
 }
 
 .about-container {
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.85fr 1.15fr;
     gap: 60px;
     align-items: center;
 }
@@ -4001,14 +4004,17 @@ body.dark-mode .projects-toggle:hover {
    EDUCATION SECTION
    ========================================================= */
 
+
 .education-section {
     width: 100%;
+    max-width: none;
     margin-top: 90px;
     padding: 20px 0 30px;
+    box-sizing: border-box;
 }
 
 .education-heading {
-    max-width: 800px;
+    width: min(800px, 92%);
     margin: 0 auto 50px;
     text-align: center;
 }
@@ -4047,13 +4053,15 @@ body.dark-mode .projects-toggle:hover {
    ========================================================= */
 
 .education-layout {
-    width: min(1100px, 92%);
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 40px;
+    box-sizing: border-box;
 
     display: grid;
-    grid-template-columns: 1fr 1.25fr;
+    grid-template-columns: 0.85fr 1.15fr;
     gap: 25px;
-    align-items: stretch;
 }
 
 .education-card {
@@ -4430,7 +4438,6 @@ body.dark-mode .projects-toggle:hover {
     flex-wrap: wrap;
     gap: 7px;
 }
-
 .topic {
     display: inline-flex;
     align-items: center;
@@ -4466,15 +4473,19 @@ body.dark-mode .projects-toggle:hover {
 
 @media (max-width: 768px) {
 
+    
+
     .education-layout {
-        width: 92%;
+        width: 100%;
+        padding: 0 15px;
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
     .education-card {
+        width: 100%;
+        box-sizing: border-box;
         padding: 22px;
-        border-radius: 15px;
     }
 
     .education-card-header {
