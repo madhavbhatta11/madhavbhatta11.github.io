@@ -3733,7 +3733,7 @@ body.dark-mode .hero-section {
 .hero-container {
     width: min(1200px, 100%);
     margin: 0 auto;
-    padding: 20px 0 0;
+    padding: 20px 10px 20px;
 
     display: grid;
 
