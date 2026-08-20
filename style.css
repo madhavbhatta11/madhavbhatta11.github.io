@@ -4923,11 +4923,4 @@ body.dark-mode .hero-section {
 }
 
 
-.projects-section {
-    width: min(var(--section-width), calc(100% - 40px));
-    margin: 40px auto;
-    border-radius: var(--section-radius);
-    box-sizing: border-box;
-}
-
 
