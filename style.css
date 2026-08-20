@@ -2,6 +2,8 @@
 
 :root {
     /* Theme Colors */
+
+    --contact-bg: #e8edf1;
     --bg-color: #eef1f4;
     --text-color: #1e293b;
     --card-color: #ffffff;
@@ -544,7 +546,7 @@ body.dark-mode .hero-text-side h1{
     color: var(--pure-white);
 
     bottom: 20px;
-    left: -35px;
+    left: -10px;
 
     animation: swimGreen 5s ease-in-out infinite;
 }
@@ -558,49 +560,22 @@ body.dark-mode .hero-text-side h1{
 }
 
 @keyframes swimGreen {
-
-    0% {
-        transform: translate(-15px, 15px) rotate(-5deg);
-    }
-
-    25% {
-        transform: translate(10px, -10px) rotate(-2deg);
+    0%, 100% {
+        transform: translate(-6px, 5px) rotate(-2deg);
     }
 
     50% {
-        transform: translate(35px, -20px) rotate(3deg);
-    }
-
-    75% {
-        transform: translate(15px, 5px) rotate(-2deg);
-    }
-
-    100% {
-        transform: translate(-15px, 15px) rotate(-5deg);
+        transform: translate(8px, -6px) rotate(2deg);
     }
 }
 
-
 @keyframes swimOrange {
-
-    0% {
-        transform: translate(15px, -15px) rotate(5deg);
-    }
-
-    25% {
-        transform: translate(-10px, 10px) rotate(2deg);
+    0%, 100% {
+        transform: translate(6px, -5px) rotate(2deg);
     }
 
     50% {
-        transform: translate(-35px, 20px) rotate(-3deg);
-    }
-
-    75% {
-        transform: translate(-15px, -5px) rotate(2deg);
-    }
-
-    100% {
-        transform: translate(15px, -15px) rotate(5deg);
+        transform: translate(-8px, 6px) rotate(-2deg);
     }
 }
 .pill-green .cursor-pointer {
@@ -639,8 +614,8 @@ body.dark-mode .hero-text-side h1{
 .circular-seal {
     position: absolute;
 
-    top: 40px;
-    right: -25px;
+    top: 70px;
+    right: 10px;
 
     width: 80px;
     height: 80px;
@@ -703,6 +678,18 @@ body.dark-mode .hero-text-side h1{
     to {
         transform: rotate(360deg);
     }
+}
+
+@media (max-width: 768px) {
+
+    .circular-seal {
+        top: 70px;
+        right: 10px;
+
+        width: 70px;
+        height: 70px;
+    }
+
 }
 
 /* =========================================================
@@ -852,8 +839,8 @@ body.dark-mode .photography-section {
 
 .photoSwiper .swiper-slide-prev img,
 .photoSwiper .swiper-slide-next img {
-    width: 420px;
-    height: 520px;
+    width: 380px;
+    height: 480px;
 
     object-fit: cover;
 
@@ -863,7 +850,7 @@ body.dark-mode .photography-section {
 
     filter: blur(1px);
 
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
 
@@ -973,13 +960,13 @@ body.dark-mode .photography-section {
         padding: 0 15px;
     }
 }
-/* Hide all other slides */
+/* Hide all other slides
 
 .photoSwiper .swiper-slide:not(.swiper-slide-prev):not(.swiper-slide-active):not(.swiper-slide-next){
 
     opacity:0;
 
-}
+} */
 
 /* ================= ABOUT SECTION ================= */
 /* ================= ABOUT SECTION ================= */
@@ -1014,16 +1001,52 @@ body.dark-mode .about-section {
 }
 
 .circular-bg {
-    width: 280px;
-    height: 280px;
+    width: clamp(220px, 70vw, 280px);
+    aspect-ratio: 1 / 1;
+
     background: var(--accent-slate);
     border-radius: 50%;
     overflow: hidden;
+
+    margin: 0;
 }
+
 .circular-bg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+
+    .about-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .circular-bg {
+        width: clamp(220px, 70vw, 280px);
+        aspect-ratio: 1 / 1;
+        margin: 0;
+    }
+
+    .circular-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .circular-bg {
+        width: 240px;
+        height: 240px;
+    }
+
 }
 
 .about-text h2 {
@@ -1923,6 +1946,7 @@ body.dark-mode .footer{
         flex-direction:column;
 
         padding:20px;
+        box-sizing: border-box;
         border-radius:20px;
 
         max-height:80vh;
@@ -1931,7 +1955,7 @@ body.dark-mode .footer{
         /* Animation */
         opacity:0;
         visibility:hidden;
-        transform:translateY(-25px) scale(.96);
+        transform:translateY(0px) scale(1);
 
         transition:
             opacity .8s ease,
@@ -1983,20 +2007,16 @@ body.dark-mode .footer{
         padding-right: 0;
     }
 
-.circular-bg{
+    .circular-bg {
+        order: 1;
+        margin:0 auto;
+    }
 
-    margin: 0 auto;
-    order: 1;
-
-}
-
-.about-text{
-
-    order: 2;
-    width: 100%;
-    text-align: justify;
-
-}
+    .about-text {
+        order: 2;
+        width: 100%;
+        text-align: justify;
+    }
 
 
     .whatsapp-float{
@@ -2019,15 +2039,15 @@ body.dark-mode .footer{
 /* ================= CONTACT SECTION ================= */
 
 .contact-section {
-    padding: 80px 8%;
+    padding: 20px 8%;
 
     width: min(var(--section-width), calc(100% - 40px));
     margin: 40px auto;
 
     border-radius: var(--section-radius);
 
-    background: #17201a;
-    color: #e2e8e3;
+    background: var(--contact-bg);
+    color: var(--text-color);
 
     box-sizing: border-box;
 }
@@ -2051,7 +2071,7 @@ body.dark-mode .contact-section {
 
 .contact-info h2 {
     font-size: 2.5rem;
-    color: var(--pure-white);
+    color: var(--text-color);
     /* margin-bottom: 10px; */
 }
 
@@ -2063,7 +2083,7 @@ body.dark-mode .contact-section {
     line-height: 1.8;
     text-align: justify;
     margin-bottom: 10px;
-    color: var(--nav-text);
+    color: var(--muted-grey);
 }
 
 .contact-details {
@@ -2105,7 +2125,7 @@ body.dark-mode .contact-section {
 
 .contact-item h4 {
     margin-bottom: 4px;
-    color: var(--pure-white);
+    color: var(--text-color);
 }
 
 .social-links {
@@ -2129,7 +2149,7 @@ body.dark-mode .contact-section {
     justify-content: center;
     align-items: center;
 
-    color: var(--nav-text);
+    color: var(--muted-grey);
 
     text-decoration: none;
 
@@ -2166,12 +2186,13 @@ body.dark-mode .contact-section {
     padding: 12px 14px;
 
     box-sizing: border-box;
+
     border: 1px solid var(--border-color);
     border-radius: 10px;
 
-    background: #253029;
-    color: #f2f2f2;
-    color-scheme: light;
+    background: var(--card-color);
+    color: var(--text-color);
+
     font-size: 16px;
     font-family: inherit;
 
@@ -2179,7 +2200,8 @@ body.dark-mode .contact-section {
 
     transition:
         border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
 }
 
 
@@ -2199,13 +2221,15 @@ body.dark-mode .contact-form textarea {
 .contact-form textarea:-webkit-autofill:hover,
 .contact-form textarea:-webkit-autofill:focus {
 
-    -webkit-text-fill-color: #f2f2f2;
+    -webkit-text-fill-color: var(--text-color);
 
     -webkit-box-shadow:
-        0 0 0 1000px #253029 inset;
+        0 0 0 1000px var(--card-color) inset;
 
     box-shadow:
-        0 0 0 1000px #253029 inset;
+        0 0 0 1000px var(--card-color) inset;
+
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /* ---------- Focus ---------- */
@@ -2214,14 +2238,13 @@ body.dark-mode .contact-form textarea {
 .contact-form textarea:focus {
     outline: none;
 
-    background: #29352e;
+    background: var(--card-color);
 
     border-color: var(--brand-green);
 
     box-shadow:
         0 0 0 3px rgba(50, 117, 63, 0.15);
 }
-
 
 /* ---------- Placeholder ---------- */
 
@@ -2247,7 +2270,7 @@ body.dark-mode .contact-form textarea {
     border: 1px solid var(--brand-green);
     border-radius: 10px;
 
-    background: transparent;
+    background: var(--brand-green);
     color: var(--pure-white);
 
     font-size: 16px;
@@ -2257,21 +2280,21 @@ body.dark-mode .contact-form textarea {
 
     transition:
         background-color 0.3s ease,
-        color 0.3s ease,
         border-color 0.3s ease,
         transform 0.3s ease,
         box-shadow 0.3s ease;
 }
 
 .contact-form button:hover {
-    background: var(--brand-green);
-    border-color: var(--brand-green);
+    background: #285f33;
+    border-color: #285f33;
 
     color: var(--pure-white);
 
     transform: translateY(-2px);
 
-    box-shadow: 0 8px 20px rgba(50, 117, 63, 0.18);
+    box-shadow:
+        0 8px 20px rgba(50, 117, 63, 0.18);
 }
 
 /* =========================================================
@@ -2281,7 +2304,7 @@ body.dark-mode .contact-form textarea {
 @media (max-width: 992px) {
 
     .contact-section {
-        padding: 70px 6% 100px;
+        padding: 60px 6% 80px;
     }
 
     .contact-container {
@@ -2337,7 +2360,7 @@ body.dark-mode .contact-form textarea {
 @media (max-width: 480px) {
 
     .contact-section {
-        padding: 60px 20px 80px;
+        padding: 35px 20px 40px;
     }
 
     .contact-info h2 {
@@ -2455,6 +2478,7 @@ body.dark-mode .contact-form textarea {
     box-sizing: border-box;
 }
 
+
 .ribbon-track {
     display: inline-flex;
     align-items: center;
@@ -2464,7 +2488,7 @@ body.dark-mode .contact-form textarea {
     white-space: nowrap;
 
     animation: scrollRight 10s linear infinite;
-}
+} 
 
 @keyframes scrollRight {
     from {
@@ -3774,12 +3798,7 @@ body.dark-mode .hero-section {
         box-shadow 0.3s ease;
 }
 
-.developer-visual:hover {
-    transform: translate(-3px, -3px);
 
-    box-shadow:
-        0 28px 55px rgba(0, 0, 0, 0.22);
-}
 
 
 /* ---------- Top ---------- */
@@ -4062,10 +4081,6 @@ body.dark-mode .hero-section {
             45px;
     }
 
-    .hero-container {
-        gap: 25px;
-    }
-
     .circle-backdrop {
         width: min(82vw, 320px);
     }
@@ -4076,26 +4091,28 @@ body.dark-mode .hero-section {
     }
 
     .pill-green {
-        left: -10px;
+        left: 2px;
     }
 
     .pill-orange {
-        right: -10px;
+        right: 10px;
     }
 
     .circular-seal {
-        width: 65px;
-        height: 65px;
+        top: 70px;
+        right: 10px;
 
-        right: -8px;
+        width: 70px;
+        height: 70px;
     }
 }
 
 /* ================= HERO VISUAL ================= */
 
 .circle-backdrop {
-    width: min(40vw, 500px);
-    aspect-ratio: 8 / 8;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
 
     background: var(--muted-grey);
     border-radius: 28px;
@@ -4140,6 +4157,7 @@ body.dark-mode .hero-section {
     align-items: center;
 
     width: 100%;
+    min-width: 0;
 
     transform: translateX(15px);
 }
@@ -4149,29 +4167,28 @@ body.dark-mode .hero-section {
 
 @media (max-width: 768px) {
 
-    .hero-clean {
+    .hero-clean,
+    .hero-section {
         width: 100%;
         margin: 0;
-        padding: 15px 0 25px;
+        padding: 30px 0;
+        border-radius: 0;
         box-sizing: border-box;
     }
 
     .hero-container {
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 1200px;
+        min-width: 0;
 
-        margin-left: 0;
-        margin-right: 0;
-
-        padding-left: 0;
-        padding-right: 0;
-
-        box-sizing: border-box;
+        margin: 0 auto;
+        padding: 0 12px;
 
         display: grid;
         grid-template-columns: 1fr;
-
         gap: 20px;
+
+        box-sizing: border-box;
     }
 
     .hero-text-side {
@@ -4182,6 +4199,7 @@ body.dark-mode .hero-section {
 
     .hero-graphic-side {
         width: 100%;
+        min-width: 0;
         max-width: none;
 
         margin: 0;
@@ -4215,15 +4233,19 @@ body.dark-mode .hero-section {
         width: 100%;
         padding: 10px 0 20px;
     }
+    .hero-section {
+        padding: 25px 0;
+    }
 
     .hero-container {
-        width: 100vw;
-        max-width: 100vw;
+        width: 100%;
+        max-width: 100%;
         margin: 0;
         padding: 0;
 
         gap: 15px;
     }
+
 
     .circle-backdrop {
         width: calc(100vw - 10px);
@@ -4237,16 +4259,18 @@ body.dark-mode .hero-section {
 @media (max-width: 360px) {
 
     .hero-clean {
-        padding: 8px 3px 15px;
+        padding: 20px 0;
     }
 
     .hero-container {
-        gap: 12px;
+        padding: 0 10px;
+        gap: 15px;
     }
 
     .circle-backdrop {
-        width: calc(100vw - 6px);
+        width: 100%;
         max-width: 330px;
+        box-sizing: border-box;
     }
 }
 
@@ -4258,8 +4282,8 @@ body.dark-mode .hero-section {
 .education-section {
     width: 100%;
     max-width: none;
-    margin-top: 40px;
-    padding: 20px 0 30px;
+    margin-top: 10px;
+    padding: 10px 0 10px;
     box-sizing: border-box;
 }
 
@@ -4736,19 +4760,24 @@ body.dark-mode .hero-section {
 
     
 
+    .education-section {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
     .education-layout {
         width: 100%;
-        padding: 0 15px;
-        
+        padding: 0 8px;
+
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
     .education-card {
         width: 100%;
-        
         box-sizing: border-box;
-        padding: 22px;
+        padding: 20px;
     }
 
     .education-card-header {
@@ -4767,8 +4796,8 @@ body.dark-mode .hero-section {
 
     .foundation-item,
     .engineering-year {
-        grid-template-columns: 50px 1fr;
-        gap: 15px;
+        grid-template-columns: 46px minmax(0, 1fr);
+        gap: 12px;
     }
 
     .year-marker {
@@ -4834,6 +4863,64 @@ body.dark-mode .hero-section {
         font-size: 0.76rem;
     }
 }
+@media (max-width: 360px) {
+
+    .education-heading {
+        width: calc(100% - 24px);
+        margin-bottom: 30px;
+    }
+
+    .education-layout {
+        padding: 0 6px;
+    }
+
+    .education-card {
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .education-card-header {
+        gap: 10px;
+        margin-bottom: 24px;
+    }
+
+    .education-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.62rem;
+    }
+
+    .foundation-item,
+    .engineering-year {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 10px;
+    }
+
+    .year-marker {
+        width: 38px;
+        height: 38px;
+    }
+
+    .year-marker span {
+        font-size: 0.54rem;
+    }
+
+    .topic {
+        white-space: normal;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 0.68rem;
+    }
+
+    .foundation-item h4,
+    .engineering-year h4 {
+        font-size: 0.88rem;
+    }
+
+    .foundation-item p {
+        font-size: 0.74rem;
+    }
+}
 
 
 .projects-section {
@@ -4842,3 +4929,5 @@ body.dark-mode .hero-section {
     border-radius: var(--section-radius);
     box-sizing: border-box;
 }
+
+
